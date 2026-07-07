@@ -273,21 +273,31 @@ function WorkSection() {
                     i % 2 === 1 ? "md:order-2" : ""
                   }`}
                 >
-                  <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-border bg-gradient-to-br from-secondary/60 to-background p-8">
-                    <div className="absolute inset-x-8 top-8 flex items-center justify-between font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
-                      <span>{w.name.toLowerCase()}.app</span>
-                      <span className="text-primary">live</span>
+                  {w.name === "Voco" ? (
+                    <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-border bg-gradient-to-br from-secondary/60 to-background">
+                      <img
+                        src={vocoScreenshot.url}
+                        alt="Voco language learning platform"
+                        className="h-full w-full object-cover"
+                      />
                     </div>
-                    <div className="flex h-full flex-col justify-end">
-                      <div className="font-sans text-6xl font-bold leading-none text-foreground/90">
-                        {w.name}
+                  ) : (
+                    <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-border bg-gradient-to-br from-secondary/60 to-background p-8">
+                      <div className="absolute inset-x-8 top-8 flex items-center justify-between font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
+                        <span>{w.name.toLowerCase()}.app</span>
+                        <span className="text-primary">live</span>
                       </div>
-                      <div className="mt-4 h-px w-16 bg-primary" />
-                      <div className="mt-4 font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
-                        {w.tag}
+                      <div className="flex h-full flex-col justify-end">
+                        <div className="font-sans text-6xl font-bold leading-none text-foreground/90">
+                          {w.name}
+                        </div>
+                        <div className="mt-4 h-px w-16 bg-primary" />
+                        <div className="mt-4 font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
+                          {w.tag}
+                        </div>
                       </div>
                     </div>
-                  </div>
+                  )}
                 </div>
 
                 <div className={`md:col-span-7 ${i % 2 === 1 ? "md:order-1" : ""}`}>
