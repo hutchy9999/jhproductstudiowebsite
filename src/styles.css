@@ -38,7 +38,6 @@
   --color-bone: var(--bone);
   --color-lime: var(--lime);
   --color-slate-meta: var(--slate-meta);
-  --font-serif: "Instrument Serif", ui-serif, Georgia, serif;
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
 }
