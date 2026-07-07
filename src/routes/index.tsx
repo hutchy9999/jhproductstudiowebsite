@@ -62,7 +62,7 @@ function Wordmark() {
   return (
     <a href="#top" className="group flex items-center gap-2">
       <span className="font-mono text-sm text-primary">JH</span>
-      <span className="font-serif text-lg tracking-tight">Product Studio</span>
+      <span className="font-sans text-lg font-medium tracking-tight">Product Studio</span>
     </a>
   );
 }
@@ -115,7 +115,7 @@ function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.05, ease: [0.22, 1, 0.36, 1] }}
-          className="mt-8 font-serif text-[clamp(2.75rem,7vw,6rem)] leading-[0.98] tracking-tight"
+          className="mt-8 font-sans text-[clamp(2.75rem,7vw,6rem)] font-semibold leading-[0.98] tracking-tight"
         >
           Product management
           <br />
@@ -187,7 +187,7 @@ function Pillars() {
           <Reveal key={i.k} delay={idx * 0.08}>
             <div>
               <div className="font-mono text-xs text-primary">{i.k}</div>
-              <h3 className="mt-3 font-serif text-2xl">{i.t}</h3>
+              <h3 className="mt-3 font-sans text-2xl font-semibold">{i.t}</h3>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
                 {i.d}
               </p>
@@ -257,7 +257,7 @@ function WorkSection() {
       <div className="mx-auto max-w-6xl px-6">
         <Reveal>
           <SectionLabel n="01">Selected work</SectionLabel>
-          <h2 className="mt-6 max-w-3xl font-serif text-4xl leading-tight md:text-5xl">
+          <h2 className="mt-6 max-w-3xl font-sans text-4xl font-semibold leading-tight md:text-5xl">
             Three products I took from a blank page to shipped, using AI tooling
             end to end.
           </h2>
@@ -278,7 +278,7 @@ function WorkSection() {
                       <span className="text-primary">live</span>
                     </div>
                     <div className="flex h-full flex-col justify-end">
-                      <div className="font-serif text-6xl leading-none text-foreground/90">
+                      <div className="font-sans text-6xl font-bold leading-none text-foreground/90">
                         {w.name}
                       </div>
                       <div className="mt-4 h-px w-16 bg-primary" />
@@ -290,7 +290,7 @@ function WorkSection() {
                 </div>
 
                 <div className={`md:col-span-7 ${i % 2 === 1 ? "md:order-1" : ""}`}>
-                  <h3 className="font-serif text-3xl md:text-4xl">{w.name}</h3>
+                  <h3 className="font-sans text-3xl font-semibold md:text-4xl">{w.name}</h3>
                   <p className="mt-4 text-lg leading-relaxed text-foreground/90">
                     {w.summary}
                   </p>
@@ -360,7 +360,7 @@ function ExperienceStrip() {
       <div className="mx-auto max-w-6xl px-6">
         <Reveal>
           <SectionLabel n="02">Recent numbers</SectionLabel>
-          <h2 className="mt-6 max-w-3xl font-serif text-4xl leading-tight">
+          <h2 className="mt-6 max-w-3xl font-sans text-4xl font-semibold leading-tight">
             Outcomes from the last few years in permanent product roles.
           </h2>
         </Reveal>
@@ -368,7 +368,7 @@ function ExperienceStrip() {
           {items.map((it, i) => (
             <Reveal key={it.metric} delay={i * 0.08}>
               <div className="border-t border-border pt-6">
-                <div className="font-serif text-6xl text-primary">{it.metric}</div>
+                <div className="font-sans text-6xl font-bold text-primary">{it.metric}</div>
                 <div className="mt-2 font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
                   {it.label}
                 </div>
@@ -413,7 +413,7 @@ function Services() {
       <div className="mx-auto max-w-6xl px-6">
         <Reveal>
           <SectionLabel n="03">How we can work together</SectionLabel>
-          <h2 className="mt-6 max-w-3xl font-serif text-4xl leading-tight md:text-5xl">
+          <h2 className="mt-6 max-w-3xl font-sans text-4xl font-semibold leading-tight md:text-5xl">
             Three ways to hire me, sized to what you actually need.
           </h2>
         </Reveal>
@@ -429,7 +429,7 @@ function Services() {
                     {s.length}
                   </span>
                 </div>
-                <h3 className="mt-6 font-serif text-3xl">{s.name}</h3>
+                <h3 className="mt-6 font-sans text-3xl font-semibold">{s.name}</h3>
                 <p className="mt-4 text-sm leading-relaxed text-foreground/85">
                   {s.body}
                 </p>
@@ -464,7 +464,7 @@ function About() {
       <div className="mx-auto grid max-w-6xl gap-16 px-6 md:grid-cols-12">
         <div className="md:col-span-4">
           <SectionLabel n="04">About</SectionLabel>
-          <h2 className="mt-6 font-serif text-4xl leading-tight">
+          <h2 className="mt-6 font-sans text-4xl font-semibold leading-tight">
             Ten plus years, a lot of shipped software.
           </h2>
         </div>
@@ -517,7 +517,7 @@ function Contact() {
       <div className="mx-auto max-w-6xl px-6">
         <Reveal>
           <SectionLabel n="05">Contact</SectionLabel>
-          <h2 className="mt-8 font-serif text-[clamp(2.5rem,6vw,5rem)] leading-[1.02] tracking-tight">
+          <h2 className="mt-8 font-sans text-[clamp(2.5rem,6vw,5rem)] font-semibold leading-[1.02] tracking-tight">
             Got a product you&rsquo;re trying to move?
             <br />
             <span className="italic text-primary">Let&rsquo;s talk.</span>
@@ -532,7 +532,7 @@ function Contact() {
               </div>
               <a
                 href={`mailto:${EMAIL}`}
-                className="mt-3 block break-all font-serif text-2xl text-foreground transition hover:text-primary md:text-3xl"
+                className="mt-3 block break-all font-sans text-2xl font-medium text-foreground transition hover:text-primary md:text-3xl"
               >
                 {EMAIL}
               </a>
@@ -545,7 +545,7 @@ function Contact() {
               </div>
               <a
                 href={`tel:${PHONE_HREF}`}
-                className="mt-3 block font-serif text-2xl text-foreground transition hover:text-primary md:text-3xl"
+                className="mt-3 block font-sans text-2xl font-medium text-foreground transition hover:text-primary md:text-3xl"
               >
                 {PHONE_DISPLAY}
               </a>
