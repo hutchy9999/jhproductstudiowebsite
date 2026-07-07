@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import type { ReactNode } from "react";
+import tastematchScreenshot from "@/assets/tastematch-screenshot.jpg.asset.json";
 import vocoScreenshot from "@/assets/voco-screenshot.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
