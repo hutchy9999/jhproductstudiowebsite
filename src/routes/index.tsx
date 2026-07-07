@@ -1,24 +1,612 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { motion } from "framer-motion";
+import type { ReactNode } from "react";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
-  component: Index,
+  head: () => ({
+    meta: [
+      { title: "JH Product Studio, Contractor Product Manager" },
+      {
+        name: "description",
+        content:
+          "James Hutchinson. AI native contract Product Manager based in Manchester. Discovery to delivery, shipped iOS apps and web platforms.",
+      },
+      { property: "og:title", content: "JH Product Studio" },
+      {
+        property: "og:description",
+        content:
+          "AI native contract Product Manager. Discovery to delivery, shipped iOS apps and web platforms.",
+      },
+      { property: "og:url", content: "/" },
+    ],
+    links: [{ rel: "canonical", href: "/" }],
+  }),
+  component: Home,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
-function Index() {
+const EMAIL = "james.hutchinson92@hotmail.com";
+const PHONE_DISPLAY = "07875 104 273";
+const PHONE_HREF = "+447875104273";
+
+const nav = [
+  { label: "Work", href: "#work" },
+  { label: "Services", href: "#services" },
+  { label: "About", href: "#about" },
+  { label: "Contact", href: "#contact" },
+];
+
+function SectionLabel({ n, children }: { n: string; children: ReactNode }) {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
+    <div className="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.22em] text-muted-foreground">
+      <span className="text-primary">{n}</span>
+      <span className="h-px w-8 bg-border" />
+      <span>{children}</span>
+    </div>
+  );
+}
+
+function Reveal({ children, delay = 0 }: { children: ReactNode; delay?: number }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 16 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-80px" }}
+      transition={{ duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] }}
     >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
+      {children}
+    </motion.div>
+  );
+}
+
+function Wordmark() {
+  return (
+    <a href="#top" className="group flex items-center gap-2">
+      <span className="font-mono text-sm text-primary">JH</span>
+      <span className="font-serif text-lg tracking-tight">Product Studio</span>
+    </a>
+  );
+}
+
+function Nav() {
+  return (
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-border/60 bg-background/70 backdrop-blur-md">
+      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
+        <Wordmark />
+        <nav className="hidden items-center gap-8 md:flex">
+          {nav.map((n) => (
+            <a
+              key={n.href}
+              href={n.href}
+              className="font-mono text-xs uppercase tracking-[0.18em] text-muted-foreground transition hover:text-foreground"
+            >
+              {n.label}
+            </a>
+          ))}
+        </nav>
+        <a
+          href={`mailto:${EMAIL}`}
+          className="hidden rounded-full bg-primary px-4 py-2 font-mono text-xs uppercase tracking-[0.18em] text-primary-foreground transition hover:opacity-90 md:inline-flex"
+        >
+          Get in touch
+        </a>
+      </div>
+    </header>
+  );
+}
+
+function Hero() {
+  return (
+    <section id="top" className="relative overflow-hidden pt-40 pb-28">
+      <div className="mx-auto max-w-6xl px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="inline-flex items-center gap-2 rounded-full border border-border bg-secondary/40 px-3 py-1 font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground"
+        >
+          <span className="relative flex h-1.5 w-1.5">
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-70" />
+            <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-primary" />
+          </span>
+          Open to contracts, Q3 2026
+        </motion.div>
+
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, delay: 0.05, ease: [0.22, 1, 0.36, 1] }}
+          className="mt-8 font-serif text-[clamp(2.75rem,7vw,6rem)] leading-[0.98] tracking-tight"
+        >
+          Product management
+          <br />
+          that actually{" "}
+          <span className="italic text-primary">ships</span>,
+          <br />
+          powered by AI.
+        </motion.h1>
+
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, delay: 0.15 }}
+          className="mt-8 max-w-xl text-lg leading-relaxed text-muted-foreground"
+        >
+          I&rsquo;m James, a contract Product Manager who takes ideas from a napkin
+          sketch to a working product in days rather than months. I run discovery,
+          build alongside engineers, and use AI tooling to move fast without cutting
+          corners.
+        </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, delay: 0.25 }}
+          className="mt-10 flex flex-wrap items-center gap-4"
+        >
+          <a
+            href={`mailto:${EMAIL}`}
+            className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition hover:opacity-90"
+          >
+            Start a conversation
+            <span aria-hidden>&rarr;</span>
+          </a>
+          <a
+            href="#work"
+            className="inline-flex items-center gap-2 rounded-full border border-input px-6 py-3 text-sm font-medium text-foreground transition hover:bg-secondary"
+          >
+            See selected work
+          </a>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
+function Pillars() {
+  const items = [
+    {
+      k: "01",
+      t: "Ship with AI",
+      d: "Hands on with Claude Code, Antigravity and agent workflows. I prototype features instead of just writing specs.",
+    },
+    {
+      k: "02",
+      t: "Discovery to delivery",
+      d: "Research, roadmap, backlog, release. I own the full cycle and keep engineers, design and stakeholders in sync.",
+    },
+    {
+      k: "03",
+      t: "Certified Scrum PO",
+      d: "Ten plus years across B2B, B2C, SaaS, fintech and e-commerce. Agile by default, pragmatic in practice.",
+    },
+  ];
+  return (
+    <section className="border-y border-border/60 bg-secondary/20 py-16">
+      <div className="mx-auto grid max-w-6xl gap-10 px-6 md:grid-cols-3">
+        {items.map((i, idx) => (
+          <Reveal key={i.k} delay={idx * 0.08}>
+            <div>
+              <div className="font-mono text-xs text-primary">{i.k}</div>
+              <h3 className="mt-3 font-serif text-2xl">{i.t}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                {i.d}
+              </p>
+            </div>
+          </Reveal>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+type Work = {
+  name: string;
+  tag: string;
+  summary: string;
+  audience: string;
+  problem: string;
+  tech: string[];
+};
+
+const work: Work[] = [
+  {
+    name: "TasteMatch",
+    tag: "B2C, iOS, live on the App Store",
+    summary:
+      "An AI menu scanner that tells you exactly what to order, based on a taste profile it learns over time.",
+    audience:
+      "Anyone who eats out and freezes at a forty item menu, especially people with allergies or strong food preferences.",
+    problem:
+      "People either pick something safe they have had before or gamble and regret it. TasteMatch learns your diet, allergens and spice tolerance, then ranks every dish with a match score, wildcards and dishes to skip.",
+    tech: ["Expo", "React Native", "tRPC", "Supabase", "RevenueCat"],
+  },
+  {
+    name: "QuickTrade",
+    tag: "B2B, iOS + Web, live on the App Store",
+    summary:
+      "A job management app for independent tradespeople, with a public booking link that automates the flow from enquiry to a calendar blocked job.",
+    audience:
+      "Self employed tradespeople juggling leads from voicemail, WhatsApp and Facebook without a system.",
+    problem:
+      "Tradespeople lose work because callbacks slip. QuickTrade gives each tradesperson a personal booking link. Customers submit a job, the tradesperson gets a push notification, and the calendar blocks the time automatically so nothing double books.",
+    tech: [
+      "React Native",
+      "Vite + React",
+      "Supabase",
+      "Clerk",
+      "Expo Push",
+      "EAS",
+    ],
+  },
+  {
+    name: "Voco",
+    tag: "B2B, Web platform",
+    summary:
+      "A conversational language learning platform where an AI tutor adapts to your level, topics and pace in real time.",
+    audience:
+      "Language learners who want practical speaking practice without booking a human tutor.",
+    problem:
+      "Most learners plateau at intermediate because speaking is scary. Voco removes the friction with an AI tutor that never judges, corrects in the moment and shapes each session around your interests.",
+    tech: ["React", "Hono", "Firestore", "Claude", "ElevenLabs", "Deepgram"],
+  },
+];
+
+function WorkSection() {
+  return (
+    <section id="work" className="py-28">
+      <div className="mx-auto max-w-6xl px-6">
+        <Reveal>
+          <SectionLabel n="01">Selected work</SectionLabel>
+          <h2 className="mt-6 max-w-3xl font-serif text-4xl leading-tight md:text-5xl">
+            Three products I took from a blank page to shipped, using AI tooling
+            end to end.
+          </h2>
+        </Reveal>
+
+        <div className="mt-16 space-y-24">
+          {work.map((w, i) => (
+            <Reveal key={w.name} delay={0.05}>
+              <article className="grid gap-10 md:grid-cols-12">
+                <div
+                  className={`md:col-span-5 ${
+                    i % 2 === 1 ? "md:order-2" : ""
+                  }`}
+                >
+                  <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-border bg-gradient-to-br from-secondary/60 to-background p-8">
+                    <div className="absolute inset-x-8 top-8 flex items-center justify-between font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
+                      <span>{w.name.toLowerCase()}.app</span>
+                      <span className="text-primary">live</span>
+                    </div>
+                    <div className="flex h-full flex-col justify-end">
+                      <div className="font-serif text-6xl leading-none text-foreground/90">
+                        {w.name}
+                      </div>
+                      <div className="mt-4 h-px w-16 bg-primary" />
+                      <div className="mt-4 font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
+                        {w.tag}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className={`md:col-span-7 ${i % 2 === 1 ? "md:order-1" : ""}`}>
+                  <h3 className="font-serif text-3xl md:text-4xl">{w.name}</h3>
+                  <p className="mt-4 text-lg leading-relaxed text-foreground/90">
+                    {w.summary}
+                  </p>
+                  <dl className="mt-8 space-y-6">
+                    <div>
+                      <dt className="font-mono text-[11px] uppercase tracking-[0.22em] text-primary">
+                        Who it&rsquo;s for
+                      </dt>
+                      <dd className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                        {w.audience}
+                      </dd>
+                    </div>
+                    <div>
+                      <dt className="font-mono text-[11px] uppercase tracking-[0.22em] text-primary">
+                        Problem it solves
+                      </dt>
+                      <dd className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                        {w.problem}
+                      </dd>
+                    </div>
+                    <div>
+                      <dt className="font-mono text-[11px] uppercase tracking-[0.22em] text-primary">
+                        Built with
+                      </dt>
+                      <dd className="mt-3 flex flex-wrap gap-2">
+                        {w.tech.map((t) => (
+                          <span
+                            key={t}
+                            className="rounded-full border border-border bg-secondary/40 px-3 py-1 font-mono text-[11px] text-foreground/80"
+                          >
+                            {t}
+                          </span>
+                        ))}
+                      </dd>
+                    </div>
+                  </dl>
+                </div>
+              </article>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function ExperienceStrip() {
+  const items = [
+    {
+      metric: "30%",
+      label: "conversion lift",
+      body: "Regatta Group. Ran structured A/B tests across product pages that pushed CVR up by as much as 30 percent, across fifteen sites and three brands.",
+    },
+    {
+      metric: "23%",
+      label: "onboarding uplift",
+      body: "Interactive Investor. Delivered a 23 percent lift in mobile app onboarding against a 15 percent target, leading changes across UX, dev and marketing.",
+    },
+    {
+      metric: "7",
+      label: "products shipped at group level",
+      body: "Regatta Group. Led seven digital products from discovery to launch across Regatta, Craghoppers and Dare2B, balancing brand needs against tight timelines.",
+    },
+  ];
+  return (
+    <section className="border-y border-border/60 bg-secondary/20 py-24">
+      <div className="mx-auto max-w-6xl px-6">
+        <Reveal>
+          <SectionLabel n="02">Recent numbers</SectionLabel>
+          <h2 className="mt-6 max-w-3xl font-serif text-4xl leading-tight">
+            Outcomes from the last few years in permanent product roles.
+          </h2>
+        </Reveal>
+        <div className="mt-14 grid gap-10 md:grid-cols-3">
+          {items.map((it, i) => (
+            <Reveal key={it.metric} delay={i * 0.08}>
+              <div className="border-t border-border pt-6">
+                <div className="font-serif text-6xl text-primary">{it.metric}</div>
+                <div className="mt-2 font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
+                  {it.label}
+                </div>
+                <p className="mt-6 text-sm leading-relaxed text-foreground/85">
+                  {it.body}
+                </p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Services() {
+  const services = [
+    {
+      n: "a",
+      name: "Discovery Sprint",
+      length: "One to two weeks, fixed price",
+      body: "You have an idea or a fuzzy problem. I go away, do the research, and come back with a working prototype, a validated direction and a build plan you can act on.",
+      for: "Founders and product leads who want proof before they commit budget.",
+    },
+    {
+      n: "b",
+      name: "Fractional PM",
+      length: "Ongoing, day rate",
+      body: "I embed with your team, own a product area, run the ceremonies and unblock delivery. Think of it as a senior PM on tap without the permanent headcount.",
+      for: "Teams that need product leadership now, not in three months.",
+    },
+    {
+      n: "c",
+      name: "Zero to One Build",
+      length: "Project based",
+      body: "I take a product from nothing to a shipped MVP, using AI tooling to compress the timeline. Discovery, design partners, build and launch, delivered end to end.",
+      for: "Companies validating a new bet outside the core roadmap.",
+    },
+  ];
+  return (
+    <section id="services" className="py-28">
+      <div className="mx-auto max-w-6xl px-6">
+        <Reveal>
+          <SectionLabel n="03">How we can work together</SectionLabel>
+          <h2 className="mt-6 max-w-3xl font-serif text-4xl leading-tight md:text-5xl">
+            Three ways to hire me, sized to what you actually need.
+          </h2>
+        </Reveal>
+        <div className="mt-16 grid gap-6 md:grid-cols-3">
+          {services.map((s, i) => (
+            <Reveal key={s.name} delay={i * 0.08}>
+              <div className="group relative flex h-full flex-col rounded-2xl border border-border bg-card p-8 transition hover:border-primary/60">
+                <div className="flex items-center justify-between">
+                  <span className="font-mono text-xs uppercase tracking-[0.22em] text-primary">
+                    {s.n}
+                  </span>
+                  <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
+                    {s.length}
+                  </span>
+                </div>
+                <h3 className="mt-6 font-serif text-3xl">{s.name}</h3>
+                <p className="mt-4 text-sm leading-relaxed text-foreground/85">
+                  {s.body}
+                </p>
+                <div className="mt-8 border-t border-border pt-4">
+                  <div className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
+                    Good fit for
+                  </div>
+                  <p className="mt-2 text-sm text-foreground/80">{s.for}</p>
+                </div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function About() {
+  const tools = [
+    "Claude Code",
+    "Antigravity",
+    "Jira",
+    "Confluence",
+    "Figma",
+    "Notion",
+    "GA4",
+    "Mixpanel",
+  ];
+  return (
+    <section id="about" className="border-y border-border/60 bg-secondary/20 py-28">
+      <div className="mx-auto grid max-w-6xl gap-16 px-6 md:grid-cols-12">
+        <div className="md:col-span-4">
+          <SectionLabel n="04">About</SectionLabel>
+          <h2 className="mt-6 font-serif text-4xl leading-tight">
+            Ten plus years, a lot of shipped software.
+          </h2>
+        </div>
+        <div className="space-y-6 md:col-span-8">
+          <Reveal>
+            <p className="text-lg leading-relaxed text-foreground/90">
+              I&rsquo;ve worked across B2C, B2B, SaaS, fintech and e-commerce.
+              Group Product Owner at Regatta, Product Owner on the mobile app at
+              Interactive Investor, and Product Manager at Nova, a venture builder
+              in Liverpool where I ran two agile teams at once.
+            </p>
+            <p className="mt-4 text-lg leading-relaxed text-foreground/90">
+              Since the AI tooling caught up, I&rsquo;ve been building solo. Two
+              native iOS apps and one web platform, shipped end to end. I know
+              what it takes to move a real product forward because I&rsquo;m doing
+              it every week.
+            </p>
+            <p className="mt-4 text-lg leading-relaxed text-foreground/90">
+              Based in Manchester. Certified Scrum Product Owner. Available remote
+              across the UK, and on site when it&rsquo;s the right call.
+            </p>
+          </Reveal>
+
+          <Reveal delay={0.1}>
+            <div className="mt-10 border-t border-border pt-6">
+              <div className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
+                Tools I reach for
+              </div>
+              <div className="mt-4 flex flex-wrap gap-2">
+                {tools.map((t) => (
+                  <span
+                    key={t}
+                    className="rounded-full border border-border bg-background/60 px-3 py-1 font-mono text-[11px] text-foreground/80"
+                  >
+                    {t}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Contact() {
+  return (
+    <section id="contact" className="py-32">
+      <div className="mx-auto max-w-6xl px-6">
+        <Reveal>
+          <SectionLabel n="05">Contact</SectionLabel>
+          <h2 className="mt-8 font-serif text-[clamp(2.5rem,6vw,5rem)] leading-[1.02] tracking-tight">
+            Got a product you&rsquo;re trying to move?
+            <br />
+            <span className="italic text-primary">Let&rsquo;s talk.</span>
+          </h2>
+        </Reveal>
+
+        <div className="mt-16 grid gap-10 md:grid-cols-2">
+          <Reveal>
+            <div>
+              <div className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
+                Email
+              </div>
+              <a
+                href={`mailto:${EMAIL}`}
+                className="mt-3 block break-all font-serif text-2xl text-foreground transition hover:text-primary md:text-3xl"
+              >
+                {EMAIL}
+              </a>
+            </div>
+          </Reveal>
+          <Reveal delay={0.08}>
+            <div>
+              <div className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
+                Phone
+              </div>
+              <a
+                href={`tel:${PHONE_HREF}`}
+                className="mt-3 block font-serif text-2xl text-foreground transition hover:text-primary md:text-3xl"
+              >
+                {PHONE_DISPLAY}
+              </a>
+            </div>
+          </Reveal>
+        </div>
+
+        <Reveal delay={0.15}>
+          <p className="mt-16 max-w-xl text-sm leading-relaxed text-muted-foreground">
+            Based in Manchester. Available UK wide and remote. I usually reply
+            within a working day.
+          </p>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
+function Footer() {
+  return (
+    <footer className="border-t border-border/60 py-10">
+      <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-4 px-6 md:flex-row md:items-center">
+        <Wordmark />
+        <div className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
+          &copy; {new Date().getFullYear()} James Hutchinson. All rights reserved.
+        </div>
+        <div className="flex items-center gap-6 font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
+          <a
+            href={`mailto:${EMAIL}`}
+            className="transition hover:text-foreground"
+          >
+            Email
+          </a>
+          <a
+            href="https://www.linkedin.com/"
+            target="_blank"
+            rel="noreferrer"
+            className="transition hover:text-foreground"
+          >
+            LinkedIn
+          </a>
+        </div>
+      </div>
+    </footer>
+  );
+}
+
+function Home() {
+  return (
+    <div className="min-h-screen">
+      <Nav />
+      <main>
+        <Hero />
+        <Pillars />
+        <WorkSection />
+        <ExperienceStrip />
+        <Services />
+        <About />
+        <Contact />
+      </main>
+      <Footer />
     </div>
   );
 }
