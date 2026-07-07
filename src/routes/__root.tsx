@@ -83,17 +83,21 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "James Hutchinson. AI native contract Product Manager. Discovery to delivery, shipped iOS apps and web platforms, based in Manchester.",
+          "James Hutchinson. AI native contract Product Manager based in Manchester. Discovery to delivery, shipped iOS apps and web platforms.",
       },
       { name: "author", content: "James Hutchinson" },
       { property: "og:title", content: "JH Product Studio, Contractor Product Manager" },
       {
         property: "og:description",
         content:
-          "AI native contract Product Manager. Discovery to delivery, shipped iOS apps and web platforms.",
+          "James Hutchinson. AI native contract Product Manager based in Manchester. Discovery to delivery, shipped iOS apps and web platforms.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "JH Product Studio, Contractor Product Manager" },
+      { name: "twitter:description", content: "James Hutchinson. AI native contract Product Manager based in Manchester. Discovery to delivery, shipped iOS apps and web platforms." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/e1357812-198b-433b-94c7-16c81202e18b/id-preview-948d606f--a5a0ea7a-b90c-4a9c-b949-d4154cce0cc9.lovable.app-1783452751818.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/e1357812-198b-433b-94c7-16c81202e18b/id-preview-948d606f--a5a0ea7a-b90c-4a9c-b949-d4154cce0cc9.lovable.app-1783452751818.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },

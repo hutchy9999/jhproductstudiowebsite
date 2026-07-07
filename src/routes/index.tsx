@@ -11,11 +11,11 @@ export const Route = createFileRoute("/")({
         content:
           "James Hutchinson. AI native contract Product Manager based in Manchester. Discovery to delivery, shipped iOS apps and web platforms.",
       },
-      { property: "og:title", content: "JH Product Studio" },
+      { property: "og:title", content: "JH Product Studio, Contractor Product Manager" },
       {
         property: "og:description",
         content:
-          "AI native contract Product Manager. Discovery to delivery, shipped iOS apps and web platforms.",
+          "James Hutchinson. AI native contract Product Manager based in Manchester. Discovery to delivery, shipped iOS apps and web platforms.",
       },
       { property: "og:url", content: "/" },
     ],
