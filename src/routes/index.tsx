@@ -275,11 +275,19 @@ function WorkSection() {
                   }`}
                 >
                   {w.name === "Voco" ? (
-                    <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-border bg-gradient-to-br from-secondary/60 to-background">
+                    <div className="relative overflow-hidden rounded-2xl border border-border bg-gradient-to-br from-secondary/60 to-background">
                       <img
                         src={vocoScreenshot.url}
                         alt="Voco language learning platform"
-                        className="h-full w-full object-cover"
+                        className="h-full w-full object-contain"
+                      />
+                    </div>
+                  ) : w.name === "TasteMatch" ? (
+                    <div className="relative overflow-hidden rounded-2xl border border-border bg-gradient-to-br from-secondary/60 to-background">
+                      <img
+                        src={tastematchScreenshot.url}
+                        alt="TasteMatch app on the App Store"
+                        className="h-full w-full object-contain"
                       />
                     </div>
                   ) : (
