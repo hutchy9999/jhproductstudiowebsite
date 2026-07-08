@@ -485,7 +485,7 @@ function About() {
         <div className="md:col-span-4">
           <SectionLabel n="04">About</SectionLabel>
           <h2 className="mt-6 font-sans text-4xl font-semibold leading-tight">
-            Ten plus years, a lot of shipped software.
+            Five years in product, and I still ship like it is day one.
           </h2>
         </div>
         <div className="space-y-6 md:col-span-8">
