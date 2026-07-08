@@ -1,47 +1,35 @@
-# JH Product Studio — Contractor PM Site
+Update the About heading to remove the time reference and lean into the "shipped across every stage" direction.
 
-A single-page marketing site positioning James Hutchinson as an AI-native contractor Product Manager. Dark, technical, editorial aesthetic, distinct from generic PM portfolios.
+## Proposed copy changes
 
-## Copy rules
+**About heading** (line 487-489 of `src/routes/index.tsx`)
 
-- No em-dashes anywhere in the site copy
-- Natural, spoken tone. Short sentences. First person where it fits ("I ship", "I've built"). Avoid buzzword stacks like "synergy", "leverage", "unlock value"
-- Read every line out loud before shipping. If it sounds like a LinkedIn banner, rewrite it
+Change to:
 
-## Brand & Visual Direction
+```
+Shipped across every stage, from discovery to the App Store.
+```
 
-- **Name:** JH Product Studio (wordmark, monospace accent on "JH")
-- **Palette:** Midnight ink `#0A0B0F` background, off-white `#F4F1EA` text, electric lime `#C6F24E` accent, muted slate `#8A8FA3` for meta
-- **Type:** Instrument Serif (display headlines), Inter (body), JetBrains Mono (labels, tags, section numbers)
-- **Feel:** Editorial dark, generous whitespace, mono tag labels, subtle grain, no purple gradients
+This keeps the emphasis on end-to-end delivery without anchoring it to a number of years. It also matches the body copy below, which talks about Regatta, Interactive Investor, Nova, and the two iOS apps + web platform.
 
-## Page Structure (single route `/`)
+**Pillar 03 description** (line 180-183)
 
-1. **Nav** JH Product Studio wordmark left, anchor links (Work, Services, About, Contact), email CTA
-2. **Hero** Serif headline like *"Product management that ships, powered by AI."* Subline about going from idea to a working product in days instead of months. Availability pill ("Open to contracts, Q3 2026"). Email and phone CTA
-3. **Positioning strip** three short pillars: *Ship with AI · Discovery to delivery · Certified Scrum PO*
-4. **Selected Work** QuickTrade, TasteMatch, Voco. Each card: name, one line summary, target audience, problem it solves, tech used. Alternating layout, mono tag chips
-5. **Experience highlights** Regatta Group (up to 30% CVR lift, 15 sites across 3 brands), Interactive Investor (23% onboarding uplift against a 15% target), Nova venture builder. Metric forward, plain English
-6. **Services & engagement models** three cards:
-   - *Discovery Sprint*, one to two weeks, fixed price, working prototype at the end
-   - *Fractional PM*, ongoing day rate, embedded with your team
-   - *Zero to One Build*, project based, shipped MVP using AI tooling
-7. **About** short bio, tools (Claude Code, Antigravity, Jira, Figma), CSPO cert, Manchester based, works remote across the UK
-8. **Contact** large email and phone, "Based in Manchester. Available UK wide and remote."
-9. **Footer** wordmark, copyright, LinkedIn placeholder
+The current pillar still says "Five years across B2B, B2C, SaaS, fintech and e-commerce." If we are removing time from the About heading, this should be consistent. Change to:
 
-## Technical
+```
+Built across B2B, B2C, SaaS, fintech and e-commerce. Agile by default, pragmatic in practice.
+```
 
-- TanStack Start, all content on `src/routes/index.tsx` with smooth anchor scrolling
-- Design tokens in `src/styles.css`, dark by default, no toggle
-- Fonts via `@fontsource/instrument-serif`, `@fontsource/inter`, `@fontsource/jetbrains-mono` installed with `bun add`
-- Framer Motion for hero fade and section reveals
-- SEO in `head()`: title "JH Product Studio, Contractor Product Manager", meta description, og tags (no og:image yet)
-- No backend, no forms, no Lovable Cloud
+This keeps the range of sectors but drops the time anchor.
 
-## Out of scope
+## Files to edit
 
-- Contact form or backend
-- Blog or CMS
-- Case study detail pages
-- Logo mark (wordmark only for v1)
+- `src/routes/index.tsx` — two small string replacements.
+
+## Verification
+
+- `bun run build` to confirm the copy change does not break the build.
+
+## Scope
+
+No visual, layout, or backend changes. Only copy.
