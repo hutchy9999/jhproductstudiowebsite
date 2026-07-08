@@ -408,20 +408,13 @@ function Services() {
   const services = [
     {
       n: "a",
-      name: "Discovery Sprint",
-      length: "One to two weeks, fixed price",
-      body: "You have an idea or a fuzzy problem. I go away, do the research, and come back with a working prototype, a validated direction and a build plan you can act on.",
-      for: "Founders and product leads who want proof before they commit budget.",
-    },
-    {
-      n: "b",
       name: "Fractional PM",
       length: "Ongoing, day rate",
       body: "I embed with your team, own a product area, run the ceremonies and unblock delivery. Think of it as a senior PM on tap without the permanent headcount.",
       for: "Teams that need product leadership now, not in three months.",
     },
     {
-      n: "c",
+      n: "b",
       name: "Zero to One Build",
       length: "Project based",
       body: "I take a product from nothing to a shipped MVP, using AI tooling to compress the timeline. Discovery, design partners, build and launch, delivered end to end.",
@@ -434,7 +427,7 @@ function Services() {
         <Reveal>
           <SectionLabel n="03">How we can work together</SectionLabel>
           <h2 className="mt-6 max-w-3xl font-sans text-4xl font-semibold leading-tight md:text-5xl">
-            Three ways to hire me, sized to what you actually need.
+            Two ways to hire me, sized to what you actually need.
           </h2>
         </Reveal>
         <div className="mt-16 grid gap-6 md:grid-cols-3">
