@@ -133,10 +133,9 @@ function Hero() {
           transition={{ duration: 0.9, delay: 0.15 }}
           className="mt-8 max-w-xl text-lg leading-relaxed text-muted-foreground"
         >
-          I&rsquo;m James, a contract Product Manager who takes ideas from a napkin
-          sketch to a working product in days rather than months. I run discovery,
-          build alongside engineers, and use AI tooling to move fast without cutting
-          corners.
+          I&rsquo;m James, a contract Product Manager who delivers working
+          products in weeks rather than months. I run discovery, build alongside
+          engineers and use AI tooling to move fast without cutting corners.
         </motion.p>
 
         <motion.div
