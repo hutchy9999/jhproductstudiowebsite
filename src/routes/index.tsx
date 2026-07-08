@@ -179,7 +179,7 @@ function Pillars() {
     {
       k: "03",
       t: "Certified Scrum PO",
-      d: "Ten plus years across B2B, B2C, SaaS, fintech and e-commerce. Agile by default, pragmatic in practice.",
+      d: "Five years across B2B, B2C, SaaS, fintech and e-commerce. Agile by default, pragmatic in practice.",
     },
   ];
   return (
