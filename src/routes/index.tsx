@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import type { ReactNode } from "react";
+import quicktradeScreenshot from "@/assets/quicktrade-screenshot.jpg.asset.json";
 import tastematchScreenshot from "@/assets/tastematch-screenshot.jpg.asset.json";
 import vocoScreenshot from "@/assets/voco-screenshot.jpg.asset.json";
 
@@ -286,6 +287,14 @@ function WorkSection() {
                       <img
                         src={tastematchScreenshot.url}
                         alt="TasteMatch app on the App Store"
+                        className="h-full w-full object-contain"
+                      />
+                    </div>
+                  ) : w.name === "QuickTrade" ? (
+                    <div className="relative overflow-hidden rounded-2xl border border-border bg-gradient-to-br from-secondary/60 to-background">
+                      <img
+                        src={quicktradeScreenshot.url}
+                        alt="QuickTrade app on the App Store"
                         className="h-full w-full object-contain"
                       />
                     </div>
