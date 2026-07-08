@@ -1,35 +1,43 @@
-Update the About heading to remove the time reference and lean into the "shipped across every stage" direction.
+Update the Services section to remove the Discovery Sprint option and reflect that two engagement models remain.
 
-## Proposed copy changes
+## Proposed changes
 
-**About heading** (line 487-489 of `src/routes/index.tsx`)
+**1. Remove Discovery Sprint from the services array** (lines 407-430 of `src/routes/index.tsx`)
 
-Change to:
-
-```
-Shipped across every stage, from discovery to the App Store.
-```
-
-This keeps the emphasis on end-to-end delivery without anchoring it to a number of years. It also matches the body copy below, which talks about Regatta, Interactive Investor, Nova, and the two iOS apps + web platform.
-
-**Pillar 03 description** (line 180-183)
-
-The current pillar still says "Five years across B2B, B2C, SaaS, fintech and e-commerce." If we are removing time from the About heading, this should be consistent. Change to:
+Delete this object from the `services` array:
 
 ```
-Built across B2B, B2C, SaaS, fintech and e-commerce. Agile by default, pragmatic in practice.
+    {
+      n: "a",
+      name: "Discovery Sprint",
+      length: "One to two weeks, fixed price",
+      body: "You have an idea or a fuzzy problem. I go away, do the research, and come back with a working prototype, a validated direction and a build plan you can act on.",
+      for: "Founders and product leads who want proof before they commit budget.",
+    },
 ```
 
-This keeps the range of sectors but drops the time anchor.
+**2. Update the section heading** (line 437)
+
+Change:
+
+```
+Three ways to hire me, sized to what you actually need.
+```
+
+To:
+
+```
+Two ways to hire me, sized to what you actually need.
+```
 
 ## Files to edit
 
-- `src/routes/index.tsx` — two small string replacements.
+- `src/routes/index.tsx` — remove one array item and change one heading string.
 
 ## Verification
 
-- `bun run build` to confirm the copy change does not break the build.
+- `bun run build` to confirm the change compiles cleanly.
 
 ## Scope
 
-No visual, layout, or backend changes. Only copy.
+Only copy and data changes in the Services section. No visual, layout, or backend changes.
