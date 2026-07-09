@@ -458,7 +458,7 @@ function ExperienceStrip() {
     <section className="border-y border-border/60 bg-secondary/20 py-24">
       <div className="mx-auto max-w-6xl px-6">
         <Reveal>
-          <SectionLabel n="02">Recent numbers</SectionLabel>
+          <SectionLabel n="03">Recent numbers</SectionLabel>
           <h2 className="mt-6 max-w-3xl font-sans text-4xl font-semibold leading-tight">
             Outcomes from the last few years in permanent product roles.
           </h2>
@@ -502,7 +502,7 @@ function Services() {
     <section id="services" className="py-28">
       <div className="mx-auto max-w-6xl px-6">
         <Reveal>
-          <SectionLabel n="03">How we can work together</SectionLabel>
+          <SectionLabel n="04">How we can work together</SectionLabel>
           <h2 className="mt-6 max-w-3xl font-sans text-4xl font-semibold leading-tight md:text-5xl">
             Two ways to hire me, sized to what you actually need.
           </h2>
@@ -550,7 +550,7 @@ function About() {
     <section id="about" className="border-y border-border/60 bg-secondary/20 py-28">
       <div className="mx-auto grid max-w-6xl gap-16 px-6 md:grid-cols-12">
         <div className="md:col-span-4">
-          <SectionLabel n="04">About</SectionLabel>
+          <SectionLabel n="05">About</SectionLabel>
           <h2 className="mt-6 font-sans text-4xl font-semibold leading-tight">
             Shipped across every stage, from discovery to the App Store.
           </h2>
@@ -603,7 +603,7 @@ function Contact() {
     <section id="contact" className="py-32">
       <div className="mx-auto max-w-6xl px-6">
         <Reveal>
-          <SectionLabel n="05">Contact</SectionLabel>
+          <SectionLabel n="06">Contact</SectionLabel>
           <h2 className="mt-8 font-sans text-[clamp(2.5rem,6vw,5rem)] font-semibold leading-[1.02] tracking-tight">
             Got a product you&rsquo;re trying to move?
             <br />
@@ -688,6 +688,7 @@ function Home() {
         <Hero />
         <Pillars />
         <WorkSection />
+        <Testimonials />
         <ExperienceStrip />
         <Services />
         <About />
