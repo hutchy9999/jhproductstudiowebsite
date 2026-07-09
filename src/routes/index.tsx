@@ -137,6 +137,7 @@ function Hero() {
           I&rsquo;m James, a contract Product Manager who delivers working
           products in weeks rather than months. I run discovery, build alongside
           engineers and use AI tooling to move fast without cutting corners.
+          Based in Manchester, available in the North West.
         </motion.p>
 
         <motion.div
