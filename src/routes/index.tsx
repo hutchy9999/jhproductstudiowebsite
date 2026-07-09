@@ -366,7 +366,77 @@ function WorkSection() {
   );
 }
 
+function Testimonials() {
+  const testimonials = [
+    {
+      name: "Ian Dixon",
+      role: "Digital, Creative & Tech Sector Growth Specialist",
+      quote:
+        "James is a talented, creative, and curious Product Manager. All the qualities needed to successfully deliver on product development. His tech knowledge and hands-on approach made working with him a genuine pleasure.",
+    },
+    {
+      name: "Paul Dodd",
+      role: "Fractional Head of Marketing for AI Safety / EA + mission-driven tech",
+      quote:
+        "I worked with James on a couple of projects at Nova and was always thoroughly impressed by his thorough and pragmatic approach to not just building great products, but successful businesses. A rare find, with the commercial and technical understanding, and skills needed, to excel in the tech startup environment!",
+    },
+    {
+      name: "Chris Alcock",
+      role: "Experienced Technology Leader",
+      quote:
+        "James is a passionate, committed and organised product manager, who is like an information sponge, always learning, always looking to expand his skills. A valuable trait. It was a pleasure working with him. He is a valuable addition to any product team.",
+    },
+    {
+      name: "Liam Burns",
+      role: "Lead Product Manager",
+      quote:
+        "James has a wonderful trait in that he's not afraid to ask questions. He wouldn't assume, he'd take ownership of his work and make you laugh along the way. It was great to hear his perspective and to see him integrate so well into the team. He'd be a great asset to any company.",
+    },
+    {
+      name: "Richard Dean",
+      role: "Product Leader | Coach",
+      quote:
+        "I worked with and managed James for around a year, he is a hardworking and passionate member of the team. James is curious about the reason \"why?\" in all things. This curiosity allows him to gain a deep understanding of the needs of the businesses and shareholders he supports. James picks up new skills quickly and applies them in his work immediately and adeptly. James is enthusiastic and friendly, he would be a great fit in many teams. James is a skilled Product Manager with great potential.",
+    },
+  ];
+
+  return (
+    <section className="py-28">
+      <div className="mx-auto max-w-6xl px-6">
+        <Reveal>
+          <SectionLabel n="02">Testimonials</SectionLabel>
+          <h2 className="mt-6 max-w-3xl font-sans text-4xl font-semibold leading-tight md:text-5xl">
+            What people say about working with me.
+          </h2>
+        </Reveal>
+
+        <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {testimonials.map((t, i) => (
+            <Reveal key={t.name} delay={i * 0.05}>
+              <div className="group relative flex h-full flex-col rounded-2xl border border-border bg-card p-8 transition hover:border-primary/60">
+                <div className="mb-6 font-sans text-4xl leading-none text-primary/30">
+                  &ldquo;
+                </div>
+                <p className="flex-1 text-base leading-relaxed text-foreground/90">
+                  {t.quote}
+                </p>
+                <div className="mt-8 border-t border-border pt-6">
+                  <div className="font-sans text-lg font-semibold">{t.name}</div>
+                  <div className="mt-1 font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
+                    {t.role}
+                  </div>
+                </div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function ExperienceStrip() {
+
   const items = [
     {
       metric: "30%",
@@ -388,7 +458,7 @@ function ExperienceStrip() {
     <section className="border-y border-border/60 bg-secondary/20 py-24">
       <div className="mx-auto max-w-6xl px-6">
         <Reveal>
-          <SectionLabel n="02">Recent numbers</SectionLabel>
+          <SectionLabel n="03">Recent numbers</SectionLabel>
           <h2 className="mt-6 max-w-3xl font-sans text-4xl font-semibold leading-tight">
             Outcomes from the last few years in permanent product roles.
           </h2>
@@ -432,7 +502,7 @@ function Services() {
     <section id="services" className="py-28">
       <div className="mx-auto max-w-6xl px-6">
         <Reveal>
-          <SectionLabel n="03">How we can work together</SectionLabel>
+          <SectionLabel n="04">How we can work together</SectionLabel>
           <h2 className="mt-6 max-w-3xl font-sans text-4xl font-semibold leading-tight md:text-5xl">
             Two ways to hire me, sized to what you actually need.
           </h2>
@@ -480,7 +550,7 @@ function About() {
     <section id="about" className="border-y border-border/60 bg-secondary/20 py-28">
       <div className="mx-auto grid max-w-6xl gap-16 px-6 md:grid-cols-12">
         <div className="md:col-span-4">
-          <SectionLabel n="04">About</SectionLabel>
+          <SectionLabel n="05">About</SectionLabel>
           <h2 className="mt-6 font-sans text-4xl font-semibold leading-tight">
             Shipped across every stage, from discovery to the App Store.
           </h2>
@@ -533,7 +603,7 @@ function Contact() {
     <section id="contact" className="py-32">
       <div className="mx-auto max-w-6xl px-6">
         <Reveal>
-          <SectionLabel n="05">Contact</SectionLabel>
+          <SectionLabel n="06">Contact</SectionLabel>
           <h2 className="mt-8 font-sans text-[clamp(2.5rem,6vw,5rem)] font-semibold leading-[1.02] tracking-tight">
             Got a product you&rsquo;re trying to move?
             <br />
@@ -618,6 +688,7 @@ function Home() {
         <Hero />
         <Pillars />
         <WorkSection />
+        <Testimonials />
         <ExperienceStrip />
         <Services />
         <About />
