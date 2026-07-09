@@ -416,14 +416,12 @@ function ExperienceStrip() {
 function Services() {
   const services = [
     {
-      n: "a",
       name: "Fractional PM",
       length: "Ongoing, day rate",
       body: "I embed with your team, own a product area, run the ceremonies and unblock delivery. Think of it as a senior PM on tap without the permanent headcount.",
       for: "Teams that need product leadership now, not in three months.",
     },
     {
-      n: "b",
       name: "Zero to One Build",
       length: "Project based",
       body: "I take a product from nothing to a shipped MVP, using AI tooling to compress the timeline. Discovery, design partners, build and launch, delivered end to end.",
