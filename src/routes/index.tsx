@@ -416,14 +416,12 @@ function ExperienceStrip() {
 function Services() {
   const services = [
     {
-      n: "a",
       name: "Fractional PM",
       length: "Ongoing, day rate",
       body: "I embed with your team, own a product area, run the ceremonies and unblock delivery. Think of it as a senior PM on tap without the permanent headcount.",
       for: "Teams that need product leadership now, not in three months.",
     },
     {
-      n: "b",
       name: "Zero to One Build",
       length: "Project based",
       body: "I take a product from nothing to a shipped MVP, using AI tooling to compress the timeline. Discovery, design partners, build and launch, delivered end to end.",
@@ -439,14 +437,11 @@ function Services() {
             Two ways to hire me, sized to what you actually need.
           </h2>
         </Reveal>
-        <div className="mt-16 grid gap-6 md:grid-cols-3">
+        <div className="mt-16 grid gap-6 md:grid-cols-2">
           {services.map((s, i) => (
             <Reveal key={s.name} delay={i * 0.08}>
               <div className="group relative flex h-full flex-col rounded-2xl border border-border bg-card p-8 transition hover:border-primary/60">
-                <div className="flex items-center justify-between">
-                  <span className="font-mono text-xs uppercase tracking-[0.22em] text-primary">
-                    {s.n}
-                  </span>
+                <div className="flex items-center justify-end">
                   <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
                     {s.length}
                   </span>
