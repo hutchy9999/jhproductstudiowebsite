@@ -27,7 +27,7 @@ export const Route = createFileRoute("/")({
   component: Home,
 });
 
-const EMAIL = "james.hutchinson92@hotmail.com";
+const EMAIL = "james@jhproductstudio.co.uk";
 const PHONE_DISPLAY = "07875 104 273";
 const PHONE_HREF = "+447875104273";
 
