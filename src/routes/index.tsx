@@ -437,14 +437,11 @@ function Services() {
             Two ways to hire me, sized to what you actually need.
           </h2>
         </Reveal>
-        <div className="mt-16 grid gap-6 md:grid-cols-3">
+        <div className="mt-16 grid gap-6 md:grid-cols-2">
           {services.map((s, i) => (
             <Reveal key={s.name} delay={i * 0.08}>
               <div className="group relative flex h-full flex-col rounded-2xl border border-border bg-card p-8 transition hover:border-primary/60">
-                <div className="flex items-center justify-between">
-                  <span className="font-mono text-xs uppercase tracking-[0.22em] text-primary">
-                    {s.n}
-                  </span>
+                <div className="flex items-center justify-end">
                   <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
                     {s.length}
                   </span>
