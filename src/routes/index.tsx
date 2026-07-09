@@ -576,7 +576,7 @@ function Contact() {
 
         <Reveal delay={0.15}>
           <p className="mt-16 max-w-xl text-sm leading-relaxed text-muted-foreground">
-            Based in Manchester. Available UK wide and remote. I usually reply
+            Based in Manchester. Available in the North West and remote. I usually reply
             within a working day.
           </p>
         </Reveal>
