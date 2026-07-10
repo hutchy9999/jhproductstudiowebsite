@@ -68,7 +68,7 @@ function Wordmark() {
       <img
         src={jhLogo.url}
         alt="JH Product Studio"
-        className="h-16 w-auto md:h-20"
+        className="h-20 w-auto md:h-[6.25rem]"
       />
     </a>
   );
