@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import type { ReactNode } from "react";
+import logoAsset from "@/assets/logo.png.asset.json";
 import quicktradeScreenshot from "@/assets/quicktrade-screenshot.jpg.asset.json";
 import tastematchScreenshot from "@/assets/tastematch-screenshot.jpg.asset.json";
 import vocoScreenshot from "@/assets/voco-screenshot.jpg.asset.json";
@@ -64,8 +65,11 @@ function Reveal({ children, delay = 0 }: { children: ReactNode; delay?: number }
 function Wordmark() {
   return (
     <a href="#top" className="group flex items-center gap-2">
-      <span className="font-mono text-sm text-primary">JH</span>
-      <span className="font-sans text-lg font-medium tracking-tight">Product Studio</span>
+      <img
+        src={logoAsset.url}
+        alt="JH Product Studio logo"
+        className="h-16 w-auto"
+      />
     </a>
   );
 }
@@ -73,7 +77,7 @@ function Wordmark() {
 function Nav() {
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-border/60 bg-background/70 backdrop-blur-md">
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
+      <div className="mx-auto flex h-20 max-w-6xl items-center justify-between px-6">
         <Wordmark />
         <nav className="hidden items-center gap-8 md:flex">
           {nav.map((n) => (
