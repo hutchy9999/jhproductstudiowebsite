@@ -4,6 +4,7 @@ import type { ReactNode } from "react";
 import quicktradeScreenshot from "@/assets/quicktrade-screenshot.jpg.asset.json";
 import tastematchScreenshot from "@/assets/tastematch-screenshot.jpg.asset.json";
 import vocoScreenshot from "@/assets/voco-screenshot.jpg.asset.json";
+import jhLogo from "@/assets/jh-logo.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -63,9 +64,12 @@ function Reveal({ children, delay = 0 }: { children: ReactNode; delay?: number }
 
 function Wordmark() {
   return (
-    <a href="#top" className="group flex items-center gap-2">
-      <span className="font-mono text-sm text-primary">JH</span>
-      <span className="font-sans text-lg font-medium tracking-tight">Product Studio</span>
+    <a href="#top" className="group flex items-center" aria-label="JH Product Studio">
+      <img
+        src={jhLogo.url}
+        alt="JH Product Studio"
+        className="h-16 w-auto md:h-20"
+      />
     </a>
   );
 }
@@ -73,7 +77,7 @@ function Wordmark() {
 function Nav() {
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-border/60 bg-background/70 backdrop-blur-md">
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
+      <div className="mx-auto flex h-20 max-w-6xl items-center justify-between px-6 md:h-24">
         <Wordmark />
         <nav className="hidden items-center gap-8 md:flex">
           {nav.map((n) => (
