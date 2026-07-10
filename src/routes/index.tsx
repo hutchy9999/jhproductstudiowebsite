@@ -64,9 +64,12 @@ function Reveal({ children, delay = 0 }: { children: ReactNode; delay?: number }
 
 function Wordmark() {
   return (
-    <a href="#top" className="group flex items-center gap-2">
-      <span className="font-mono text-sm text-primary">JH</span>
-      <span className="font-sans text-lg font-medium tracking-tight">Product Studio</span>
+    <a href="#top" className="group flex items-center" aria-label="JH Product Studio">
+      <img
+        src={jhLogo.url}
+        alt="JH Product Studio"
+        className="h-16 w-auto md:h-20"
+      />
     </a>
   );
 }
