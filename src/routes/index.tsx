@@ -4,6 +4,7 @@ import type { ReactNode } from "react";
 import quicktradeScreenshot from "@/assets/quicktrade-screenshot.jpg.asset.json";
 import tastematchScreenshot from "@/assets/tastematch-screenshot.jpg.asset.json";
 import vocoScreenshot from "@/assets/voco-screenshot.jpg.asset.json";
+import jhLogo from "@/assets/jh-logo.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
