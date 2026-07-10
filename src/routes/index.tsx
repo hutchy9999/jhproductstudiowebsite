@@ -249,7 +249,7 @@ const work: Work[] = [
     audience:
       "Language learners who want practical speaking practice without booking a human tutor.",
     problem:
-      "Most learners plateau at intermediate because speaking is scary. Voco removes the friction with an AI tutor that never judges, corrects in the moment and shapes each session around your interests.",
+      "Most learners plateau at intermediate because speaking is scary. Voco removes the friction with an AI tutor that never judges, adapts to the user's level, shows progress over time and shapes each session around their interests.",
     tech: ["React", "Hono", "Firestore", "Claude", "ElevenLabs", "Deepgram"],
   },
 ];
