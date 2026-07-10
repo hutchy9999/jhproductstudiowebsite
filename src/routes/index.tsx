@@ -667,7 +667,7 @@ function Footer() {
             Email
           </a>
           <a
-            href="https://www.linkedin.com/"
+            href="https://www.linkedin.com/in/jameshutchinson92/"
             target="_blank"
             rel="noreferrer"
             className="transition hover:text-foreground"
