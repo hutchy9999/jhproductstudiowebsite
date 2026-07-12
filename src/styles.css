@@ -78,23 +78,11 @@
 
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: 7.25rem;
-  }
-
-  @media (min-width: 768px) {
-    html {
-      scroll-padding-top: 8.5rem;
-    }
+    scroll-padding-top: 4rem;
   }
 
   section[id] {
-    scroll-margin-top: 7.25rem;
-  }
-
-  @media (min-width: 768px) {
-    section[id] {
-      scroll-margin-top: 8.5rem;
-    }
+    scroll-margin-top: 4rem;
   }
 
 
