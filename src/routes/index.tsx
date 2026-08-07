@@ -275,45 +275,53 @@ function WorkSection() {
             <Reveal key={w.name} delay={0.05}>
               <article
                 className={`grid gap-10 md:grid-cols-12 ${
-                  w.name === "TasteMatch" || w.name === "QuickTrade"
+                  ["TasteMatch", "QuickTrade", "Voco"].includes(w.name)
                     ? "cursor-pointer"
                     : ""
                 }`}
                 role={
-                  w.name === "TasteMatch" || w.name === "QuickTrade"
+                  ["TasteMatch", "QuickTrade", "Voco"].includes(w.name)
                     ? "link"
                     : undefined
                 }
                 tabIndex={
-                  w.name === "TasteMatch" || w.name === "QuickTrade" ? 0 : undefined
+                  ["TasteMatch", "QuickTrade", "Voco"].includes(w.name)
+                    ? 0
+                    : undefined
                 }
                 aria-label={
                   w.name === "TasteMatch"
                     ? "Open TasteMatch on the App Store"
                     : w.name === "QuickTrade"
                       ? "Open QuickTrade on the App Store"
-                      : undefined
+                      : w.name === "Voco"
+                        ? "Open the Voco website"
+                        : undefined
                 }
                 onClick={
-                  w.name === "TasteMatch" || w.name === "QuickTrade"
+                  ["TasteMatch", "QuickTrade", "Voco"].includes(w.name)
                     ? () =>
                         window.open(
                           w.name === "TasteMatch"
                             ? "https://apps.apple.com/gb/app/tastematch-menu-scanner/id6758268491"
-                            : "https://apps.apple.com/us/app/quicktrade-uk/id6760757208",
+                            : w.name === "QuickTrade"
+                              ? "https://apps.apple.com/us/app/quicktrade-uk/id6760757208"
+                              : "https://www.speakwithvoco.com/",
                           "_blank",
                           "noopener,noreferrer"
                         )
                     : undefined
                 }
                 onKeyDown={
-                  w.name === "TasteMatch" || w.name === "QuickTrade"
+                  ["TasteMatch", "QuickTrade", "Voco"].includes(w.name)
                     ? (e) => {
                         if (e.key === "Enter") {
                           window.open(
                             w.name === "TasteMatch"
                               ? "https://apps.apple.com/gb/app/tastematch-menu-scanner/id6758268491"
-                              : "https://apps.apple.com/us/app/quicktrade-uk/id6760757208",
+                              : w.name === "QuickTrade"
+                                ? "https://apps.apple.com/us/app/quicktrade-uk/id6760757208"
+                                : "https://www.speakwithvoco.com/",
                             "_blank",
                             "noopener,noreferrer"
                           );
