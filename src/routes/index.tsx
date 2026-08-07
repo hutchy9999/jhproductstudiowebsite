@@ -273,7 +273,35 @@ function WorkSection() {
         <div className="mt-16 space-y-24">
           {work.map((w, i) => (
             <Reveal key={w.name} delay={0.05}>
-              <article className="grid gap-10 md:grid-cols-12">
+              <article
+                className={`grid gap-10 md:grid-cols-12 ${w.name === "TasteMatch" ? "cursor-pointer" : ""}`}
+                role={w.name === "TasteMatch" ? "link" : undefined}
+                tabIndex={w.name === "TasteMatch" ? 0 : undefined}
+                aria-label={w.name === "TasteMatch" ? "Open TasteMatch on the App Store" : undefined}
+                onClick={
+                  w.name === "TasteMatch"
+                    ? () =>
+                        window.open(
+                          "https://apps.apple.com/gb/app/tastematch-menu-scanner/id6758268491",
+                          "_blank",
+                          "noopener,noreferrer"
+                        )
+                    : undefined
+                }
+                onKeyDown={
+                  w.name === "TasteMatch"
+                    ? (e) => {
+                        if (e.key === "Enter") {
+                          window.open(
+                            "https://apps.apple.com/gb/app/tastematch-menu-scanner/id6758268491",
+                            "_blank",
+                            "noopener,noreferrer"
+                          );
+                        }
+                      }
+                    : undefined
+                }
+              >
                 <div
                   className={`md:col-span-5 ${
                     i % 2 === 1 ? "md:order-2" : ""
