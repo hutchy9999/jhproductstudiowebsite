@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import type { ReactNode } from "react";
 import quicktradeScreenshot from "@/assets/quicktrade-screenshot.jpg.asset.json";
 import tastematchScreenshot from "@/assets/tastematch-screenshot.jpg.asset.json";
-import vocoScreenshot from "@/assets/voco-screenshot.jpg.asset.json";
+import vocoHero from "@/assets/voco-hero.jpg.asset.json";
 import jhLogo from "@/assets/jh-logo.png.asset.json";
 
 export const Route = createFileRoute("/")({
@@ -282,7 +282,7 @@ function WorkSection() {
                   {w.name === "Voco" ? (
                     <div className="relative overflow-hidden rounded-2xl border border-border bg-gradient-to-br from-secondary/60 to-background">
                       <img
-                        src={vocoScreenshot.url}
+                        src={vocoHero.url}
                         alt="Voco language learning platform"
                         className="h-full w-full object-contain"
                       />
