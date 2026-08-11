@@ -13,13 +13,13 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "James Hutchinson. AI native contract Product Manager based in Manchester. Discovery to delivery, shipped iOS apps and web platforms.",
+          "James Hutchinson. Product Manager based in Manchester. Discovery to delivery, shipped iOS apps and web platforms.",
       },
       { property: "og:title", content: "JH Product Studio, Contractor Product Manager" },
       {
         property: "og:description",
         content:
-          "James Hutchinson. AI native contract Product Manager based in Manchester. Discovery to delivery, shipped iOS apps and web platforms.",
+          "James Hutchinson. Product Manager based in Manchester. Discovery to delivery, shipped iOS apps and web platforms.",
       },
       { property: "og:url", content: "/" },
     ],
@@ -65,11 +65,7 @@ function Reveal({ children, delay = 0 }: { children: ReactNode; delay?: number }
 function Wordmark() {
   return (
     <a href="#top" className="group flex items-center" aria-label="JH Product Studio">
-      <img
-        src={jhLogo.url}
-        alt="JH Product Studio"
-        className="h-20 w-auto md:h-[6.25rem]"
-      />
+      <img src={jhLogo.url} alt="JH Product Studio" className="h-20 w-auto md:h-[6.25rem]" />
     </a>
   );
 }
@@ -113,8 +109,7 @@ function Hero() {
         >
           Product management
           <br />
-          that actually{" "}
-          <span className="italic text-primary">ships</span>,
+          that actually <span className="italic text-primary">ships</span>,
           <br />
           powered by AI.
         </motion.h1>
@@ -125,10 +120,9 @@ function Hero() {
           transition={{ duration: 0.9, delay: 0.15 }}
           className="mt-8 max-w-xl text-lg leading-relaxed text-muted-foreground"
         >
-          I&rsquo;m James, a contract Product Manager who delivers working
-          products in weeks rather than months. I run discovery, build alongside
-          engineers and use AI tooling to move fast without cutting corners.
-          Based in Manchester, available in the North West.
+          I&rsquo;m James, a Product Manager who delivers working products in weeks rather than months. I run discovery,
+          build alongside engineers and use AI tooling to move fast without cutting corners. Based in Manchester,
+          available in the North West.
         </motion.p>
 
         <motion.div
@@ -182,9 +176,7 @@ function Pillars() {
             <div>
               <div className="font-mono text-xs text-primary">{i.k}</div>
               <h3 className="mt-3 font-sans text-2xl font-semibold">{i.t}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                {i.d}
-              </p>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{i.d}</p>
             </div>
           </Reveal>
         ))}
@@ -206,8 +198,7 @@ const work: Work[] = [
   {
     name: "TasteMatch",
     tag: "B2C, iOS, live on the App Store",
-    summary:
-      "An AI menu scanner that tells you exactly what to order, based on a taste profile it learns over time.",
+    summary: "An AI menu scanner that tells you exactly what to order, based on a taste profile it learns over time.",
     audience:
       "Anyone who eats out and freezes at a forty item menu, especially people with allergies or strong food preferences.",
     problem:
@@ -219,26 +210,17 @@ const work: Work[] = [
     tag: "B2B, iOS + Web, live on the App Store",
     summary:
       "A job management app for independent tradespeople, with a public booking link that automates the flow from enquiry to a calendar blocked job.",
-    audience:
-      "Self employed tradespeople juggling leads from voicemail, WhatsApp and Facebook without a system.",
+    audience: "Self employed tradespeople juggling leads from voicemail, WhatsApp and Facebook without a system.",
     problem:
       "Tradespeople lose work because callbacks slip. QuickTrade gives each tradesperson a personal booking link. Customers submit a job, the tradesperson gets a push notification, and the calendar blocks the time automatically so nothing double books.",
-    tech: [
-      "React Native",
-      "Vite + React",
-      "Supabase",
-      "Clerk",
-      "Expo Push",
-      "EAS",
-    ],
+    tech: ["React Native", "Vite + React", "Supabase", "Clerk", "Expo Push", "EAS"],
   },
   {
     name: "Voco",
     tag: "B2B, Web platform",
     summary:
       "A conversational language learning platform where an AI tutor adapts to your level, topics and pace in real time.",
-    audience:
-      "Language learners who want practical speaking practice without booking a human tutor.",
+    audience: "Language learners who want practical speaking practice without booking a human tutor.",
     problem:
       "Most learners plateau at intermediate because speaking is scary. Voco removes the friction with an AI tutor that never judges, adapts to the user's level, shows progress over time and shapes each session around their interests.",
     tech: ["React", "Hono", "Firestore", "Claude", "ElevenLabs", "Deepgram"],
@@ -252,8 +234,7 @@ function WorkSection() {
         <Reveal>
           <SectionLabel n="01">Selected work</SectionLabel>
           <h2 className="mt-6 max-w-3xl font-sans text-4xl font-semibold leading-tight md:text-5xl">
-            Three products I took from a blank page to shipped, using AI tooling
-            end to end.
+            Three products I took from a blank page to shipped, using AI tooling end to end.
           </h2>
         </Reveal>
 
@@ -262,20 +243,10 @@ function WorkSection() {
             <Reveal key={w.name} delay={0.05}>
               <article
                 className={`grid gap-10 md:grid-cols-12 ${
-                  ["TasteMatch", "QuickTrade", "Voco"].includes(w.name)
-                    ? "cursor-pointer"
-                    : ""
+                  ["TasteMatch", "QuickTrade", "Voco"].includes(w.name) ? "cursor-pointer" : ""
                 }`}
-                role={
-                  ["TasteMatch", "QuickTrade", "Voco"].includes(w.name)
-                    ? "link"
-                    : undefined
-                }
-                tabIndex={
-                  ["TasteMatch", "QuickTrade", "Voco"].includes(w.name)
-                    ? 0
-                    : undefined
-                }
+                role={["TasteMatch", "QuickTrade", "Voco"].includes(w.name) ? "link" : undefined}
+                tabIndex={["TasteMatch", "QuickTrade", "Voco"].includes(w.name) ? 0 : undefined}
                 aria-label={
                   w.name === "TasteMatch"
                     ? "Open TasteMatch on the App Store"
@@ -295,7 +266,7 @@ function WorkSection() {
                               ? "https://apps.apple.com/us/app/quicktrade-uk/id6760757208"
                               : "https://www.speakwithvoco.com/",
                           "_blank",
-                          "noopener,noreferrer"
+                          "noopener,noreferrer",
                         )
                     : undefined
                 }
@@ -310,18 +281,14 @@ function WorkSection() {
                                 ? "https://apps.apple.com/us/app/quicktrade-uk/id6760757208"
                                 : "https://www.speakwithvoco.com/",
                             "_blank",
-                            "noopener,noreferrer"
+                            "noopener,noreferrer",
                           );
                         }
                       }
                     : undefined
                 }
               >
-                <div
-                  className={`md:col-span-5 ${
-                    i % 2 === 1 ? "md:order-2" : ""
-                  }`}
-                >
+                <div className={`md:col-span-5 ${i % 2 === 1 ? "md:order-2" : ""}`}>
                   {w.name === "Voco" ? (
                     <div className="relative overflow-hidden rounded-2xl border border-border bg-gradient-to-br from-secondary/60 to-background">
                       <img
@@ -353,9 +320,7 @@ function WorkSection() {
                         <span className="text-primary">live</span>
                       </div>
                       <div className="flex h-full flex-col justify-end">
-                        <div className="font-sans text-6xl font-bold leading-none text-foreground/90">
-                          {w.name}
-                        </div>
+                        <div className="font-sans text-6xl font-bold leading-none text-foreground/90">{w.name}</div>
                         <div className="mt-4 h-px w-16 bg-primary" />
                         <div className="mt-4 font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
                           {w.tag}
@@ -367,30 +332,22 @@ function WorkSection() {
 
                 <div className={`md:col-span-7 ${i % 2 === 1 ? "md:order-1" : ""}`}>
                   <h3 className="font-sans text-3xl font-semibold md:text-4xl">{w.name}</h3>
-                  <p className="mt-4 text-lg leading-relaxed text-foreground/90">
-                    {w.summary}
-                  </p>
+                  <p className="mt-4 text-lg leading-relaxed text-foreground/90">{w.summary}</p>
                   <dl className="mt-8 space-y-6">
                     <div>
                       <dt className="font-mono text-[11px] uppercase tracking-[0.22em] text-primary">
                         Who it&rsquo;s for
                       </dt>
-                      <dd className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                        {w.audience}
-                      </dd>
+                      <dd className="mt-2 text-sm leading-relaxed text-muted-foreground">{w.audience}</dd>
                     </div>
                     <div>
                       <dt className="font-mono text-[11px] uppercase tracking-[0.22em] text-primary">
                         Problem it solves
                       </dt>
-                      <dd className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                        {w.problem}
-                      </dd>
+                      <dd className="mt-2 text-sm leading-relaxed text-muted-foreground">{w.problem}</dd>
                     </div>
                     <div>
-                      <dt className="font-mono text-[11px] uppercase tracking-[0.22em] text-primary">
-                        Built with
-                      </dt>
+                      <dt className="font-mono text-[11px] uppercase tracking-[0.22em] text-primary">Built with</dt>
                       <dd className="mt-3 flex flex-wrap gap-2">
                         {w.tech.map((t) => (
                           <span
@@ -443,7 +400,7 @@ function Testimonials() {
       name: "Richard Dean",
       role: "Product Leader | Coach",
       quote:
-        "I worked with and managed James for around a year, he is a hardworking and passionate member of the team. James is curious about the reason \"why?\" in all things. This curiosity allows him to gain a deep understanding of the needs of the businesses and shareholders he supports. James picks up new skills quickly and applies them in his work immediately and adeptly. James is enthusiastic and friendly, he would be a great fit in many teams. James is a skilled Product Manager with great potential.",
+        'I worked with and managed James for around a year, he is a hardworking and passionate member of the team. James is curious about the reason "why?" in all things. This curiosity allows him to gain a deep understanding of the needs of the businesses and shareholders he supports. James picks up new skills quickly and applies them in his work immediately and adeptly. James is enthusiastic and friendly, he would be a great fit in many teams. James is a skilled Product Manager with great potential.',
     },
   ];
 
@@ -461,12 +418,8 @@ function Testimonials() {
           {testimonials.map((t, i) => (
             <Reveal key={t.name} delay={i * 0.05}>
               <div className="group relative flex h-full flex-col rounded-2xl border border-border bg-card p-8 transition hover:border-primary/60">
-                <div className="mb-6 font-sans text-4xl leading-none text-primary/30">
-                  &ldquo;
-                </div>
-                <p className="flex-1 text-base leading-relaxed text-foreground/90">
-                  {t.quote}
-                </p>
+                <div className="mb-6 font-sans text-4xl leading-none text-primary/30">&ldquo;</div>
+                <p className="flex-1 text-base leading-relaxed text-foreground/90">{t.quote}</p>
                 <div className="mt-8 border-t border-border pt-6">
                   <div className="font-sans text-lg font-semibold">{t.name}</div>
                   <div className="mt-1 font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
@@ -483,7 +436,6 @@ function Testimonials() {
 }
 
 function ExperienceStrip() {
-
   const items = [
     {
       metric: "30%",
@@ -513,9 +465,7 @@ function ExperienceStrip() {
                 <div className="mt-2 font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
                   {it.label}
                 </div>
-                <p className="mt-6 text-sm leading-relaxed text-foreground/85">
-                  {it.body}
-                </p>
+                <p className="mt-6 text-sm leading-relaxed text-foreground/85">{it.body}</p>
               </div>
             </Reveal>
           ))}
@@ -559,9 +509,7 @@ function Services() {
                   </span>
                 </div>
                 <h3 className="mt-6 font-sans text-3xl font-semibold">{s.name}</h3>
-                <p className="mt-4 text-sm leading-relaxed text-foreground/85">
-                  {s.body}
-                </p>
+                <p className="mt-4 text-sm leading-relaxed text-foreground/85">{s.body}</p>
                 <div className="mt-8 border-t border-border pt-4">
                   <div className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
                     Good fit for
@@ -578,16 +526,7 @@ function Services() {
 }
 
 function About() {
-  const tools = [
-    "Claude Code",
-    "Antigravity",
-    "Jira",
-    "Confluence",
-    "Figma",
-    "Notion",
-    "GA4",
-    "Mixpanel",
-  ];
+  const tools = ["Claude Code", "Antigravity", "Jira", "Confluence", "Figma", "Notion", "GA4", "Mixpanel"];
   return (
     <section id="about" className="border-y border-border/60 bg-secondary/20 py-28">
       <div className="mx-auto grid max-w-6xl gap-16 px-6 md:grid-cols-12">
@@ -600,20 +539,18 @@ function About() {
         <div className="space-y-6 md:col-span-8">
           <Reveal>
             <p className="text-lg leading-relaxed text-foreground/90">
-              I&rsquo;ve worked across B2C, B2B, SaaS, fintech and e-commerce.
-              Group Product Owner at Regatta, Product Owner on the mobile app at
-              Interactive Investor, and Product Manager at Nova, a venture builder
-              in Liverpool where I ran two agile teams at once.
+              I&rsquo;ve worked across B2C, B2B, SaaS, fintech and e-commerce. Group Product Owner at Regatta, Product
+              Owner on the mobile app at Interactive Investor, and Product Manager at Nova, a venture builder in
+              Liverpool where I ran two agile teams at once.
             </p>
             <p className="mt-4 text-lg leading-relaxed text-foreground/90">
-              Since the AI tooling caught up, I&rsquo;ve been building solo. Two
-              native iOS apps and one web platform, shipped end to end. I know
-              what it takes to move a real product forward because I&rsquo;m doing
-              it every week.
+              Since the AI tooling caught up, I&rsquo;ve been building solo. Two native iOS apps and one web platform,
+              shipped end to end. I know what it takes to move a real product forward because I&rsquo;m doing it every
+              week.
             </p>
             <p className="mt-4 text-lg leading-relaxed text-foreground/90">
-              Based in Manchester. Certified Scrum Product Owner. Available remote
-              across the UK, and on site when it&rsquo;s the right call.
+              Based in Manchester. Certified Scrum Product Owner. Available remote across the UK, and on site when
+              it&rsquo;s the right call.
             </p>
           </Reveal>
 
@@ -656,9 +593,7 @@ function Contact() {
         <div className="mt-16 grid gap-10 md:grid-cols-2">
           <Reveal>
             <div>
-              <div className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
-                Email
-              </div>
+              <div className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">Email</div>
               <a
                 href={`mailto:${EMAIL}`}
                 className="mt-3 block break-all font-sans text-2xl font-medium text-foreground transition hover:text-primary md:text-3xl"
@@ -669,9 +604,7 @@ function Contact() {
           </Reveal>
           <Reveal delay={0.08}>
             <div>
-              <div className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
-                Phone
-              </div>
+              <div className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">Phone</div>
               <a
                 href={`tel:${PHONE_HREF}`}
                 className="mt-3 block font-sans text-2xl font-medium text-foreground transition hover:text-primary md:text-3xl"
@@ -684,8 +617,7 @@ function Contact() {
 
         <Reveal delay={0.15}>
           <p className="mt-16 max-w-xl text-sm leading-relaxed text-muted-foreground">
-            Based in Manchester. Available in the North West and remote. I usually reply
-            within a working day.
+            Based in Manchester. Available in the North West and remote. I usually reply within a working day.
           </p>
         </Reveal>
       </div>
@@ -702,10 +634,7 @@ function Footer() {
           &copy; {new Date().getFullYear()} James Hutchinson. All rights reserved.
         </div>
         <div className="flex items-center gap-6 font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
-          <a
-            href={`mailto:${EMAIL}`}
-            className="transition hover:text-foreground"
-          >
+          <a href={`mailto:${EMAIL}`} className="transition hover:text-foreground">
             Email
           </a>
           <a
