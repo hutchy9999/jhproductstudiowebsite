@@ -518,7 +518,7 @@ function ExperienceStrip() {
             Outcomes from the last few years in permanent product roles.
           </h2>
         </Reveal>
-        <div className="mt-14 grid gap-10 md:grid-cols-3">
+        <div className="mt-14 grid gap-10 md:grid-cols-2">
           {items.map((it, i) => (
             <Reveal key={it.metric} delay={i * 0.08}>
               <div className="border-t border-border pt-6">
