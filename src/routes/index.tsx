@@ -542,7 +542,7 @@ function Services() {
   const services = [
     {
       name: "Fractional PM",
-      length: "Ongoing, day rate",
+      length: "Ongoing",
       body: "I embed with your team, own a product area, run the ceremonies and unblock delivery. Think of it as a senior PM on tap without the permanent headcount.",
       for: "Teams that need product leadership now, not in three months.",
     },
