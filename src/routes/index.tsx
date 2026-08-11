@@ -504,11 +504,6 @@ function ExperienceStrip() {
       body: "Regatta Group. Ran structured A/B tests across product pages that pushed CVR up by as much as 30 percent, across fifteen sites and three brands.",
     },
     {
-      metric: "23%",
-      label: "onboarding uplift",
-      body: "Interactive Investor. Delivered a 23 percent lift in mobile app onboarding against a 15 percent target, leading changes across UX, dev and marketing.",
-    },
-    {
       metric: "14",
       label: "Software products shipped",
       body: "Shipped across B2C, B2B, SaaS, finance and eCommerce. Also includes software across both web and native applications, balancing brand needs against tight deadlines.",
