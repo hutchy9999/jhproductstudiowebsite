@@ -231,7 +231,7 @@ function WorkSection() {
     <section id="work" className="py-28">
       <div className="mx-auto max-w-6xl px-6">
         <Reveal>
-          <SectionLabel n="02">Selected work</SectionLabel>
+          <SectionLabel n="03">Selected work</SectionLabel>
           <h2 className="mt-6 max-w-3xl font-sans text-4xl font-semibold leading-tight md:text-5xl">
             Three products I took from a blank page to shipped, using AI tooling end to end.
           </h2>
@@ -451,7 +451,7 @@ function ExperienceStrip() {
     <section className="border-y border-border/60 bg-secondary/20 py-24">
       <div className="mx-auto max-w-6xl px-6">
         <Reveal>
-          <SectionLabel n="03">Recent numbers</SectionLabel>
+          <SectionLabel n="02">Recent numbers</SectionLabel>
           <h2 className="mt-6 max-w-3xl font-sans text-4xl font-semibold leading-tight">
             Outcomes from the last few years in permanent product roles.
           </h2>
@@ -657,9 +657,9 @@ function Home() {
       <main>
         <Hero />
         <Testimonials />
+        <ExperienceStrip />
         <Pillars />
         <WorkSection />
-        <ExperienceStrip />
         <Services />
         <About />
         <Contact />
