@@ -120,9 +120,8 @@ function Hero() {
           transition={{ duration: 0.9, delay: 0.15 }}
           className="mt-8 max-w-xl text-lg leading-relaxed text-muted-foreground"
         >
-          I&rsquo;m James, a Product Manager who delivers working products in weeks rather than months. I run discovery,
-          build alongside engineers and use AI tooling to move fast without cutting corners. Based in Manchester,
-          available in the North West.
+          I&rsquo;m James, a Product Manager based in the North West. I combine product thinking, customer discovery and
+          hands-on AI development to take ideas from discovery to working solutions.
         </motion.p>
 
         <motion.div
