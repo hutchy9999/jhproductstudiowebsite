@@ -231,7 +231,7 @@ function WorkSection() {
     <section id="work" className="py-28">
       <div className="mx-auto max-w-6xl px-6">
         <Reveal>
-          <SectionLabel n="01">Selected work</SectionLabel>
+          <SectionLabel n="02">Selected work</SectionLabel>
           <h2 className="mt-6 max-w-3xl font-sans text-4xl font-semibold leading-tight md:text-5xl">
             Three products I took from a blank page to shipped, using AI tooling end to end.
           </h2>
@@ -407,7 +407,7 @@ function Testimonials() {
     <section className="py-28">
       <div className="mx-auto max-w-6xl px-6">
         <Reveal>
-          <SectionLabel n="02">Testimonials</SectionLabel>
+          <SectionLabel n="01">Testimonials</SectionLabel>
           <h2 className="mt-6 max-w-3xl font-sans text-4xl font-semibold leading-tight md:text-5xl">
             What people say about working with me.
           </h2>
@@ -656,9 +656,9 @@ function Home() {
       <Nav />
       <main>
         <Hero />
+        <Testimonials />
         <Pillars />
         <WorkSection />
-        <Testimonials />
         <ExperienceStrip />
         <Services />
         <About />
