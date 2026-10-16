@@ -478,7 +478,7 @@ function Services() {
   const ways = [
     {
       tag: "Dev, UX, marketing, content, QA",
-      name: "Works with the whole team",
+      name: "Work with the whole team",
       body: "Most of my week is spent with the people building and selling the product. Engineers, designers, marketing, content and QA all see different risks, so I try to get those views into the same conversation early, while changing course is still cheap.",
     },
     {
