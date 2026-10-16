@@ -34,7 +34,7 @@ const PHONE_HREF = "+447875104273";
 
 const nav = [
   { label: "Work", href: "#work" },
-  { label: "Services", href: "#services" },
+  { label: "How I work", href: "#services" },
   { label: "About", href: "#about" },
   { label: "Contact", href: "#contact" },
 ];
@@ -475,50 +475,58 @@ function ExperienceStrip() {
 }
 
 function Services() {
-  const services = [
+  const ways = [
     {
-      name: "Fractional PM",
-      length: "Ongoing",
-      body: "I embed with your team, own a product area, run the ceremonies and unblock delivery. Think of it as a senior PM on tap.",
-      for: "Teams that need product leadership now, not in three months.",
+      tag: "Dev, UX, marketing, content, QA",
+      name: "Works with the whole team",
+      body: "Most of my week is spent with the people building and selling the product. Engineers, designers, marketing, content and QA all see different risks, so I try to get those views into the same conversation early, while changing course is still cheap.",
     },
     {
-      name: "Zero to One Build",
-      length: "Project based",
-      body: "I take a product from nothing to a shipped MVP, using AI tooling to compress the timeline. Discovery, design partners, build and launch, delivered end to end.",
-      for: "Companies validating a new bet outside the core roadmap.",
+      tag: "Roadmap, scope, dates",
+      name: "On track and in scope",
+      body: "I hold the plan, the priorities and the trade offs that come with them. If something is going to slip or grow beyond what we agreed, the people who need to know hear it from me the week it is at risk, not the week it is due.",
+    },
+    {
+      tag: "Stakeholders, updates, reviews",
+      name: "Everyone knows where things stand",
+      body: "I keep stakeholders updated in plain English, so nobody has to chase a status report and nobody learns something important at a review. Keeping people aligned is mostly just talking to them often enough.",
     },
   ];
   return (
     <section id="services" className="py-28">
       <div className="mx-auto max-w-6xl px-6">
         <Reveal>
-          <SectionLabel n="04">How we can work together</SectionLabel>
+          <SectionLabel n="04">How I work</SectionLabel>
           <h2 className="mt-6 max-w-3xl font-sans text-4xl font-semibold leading-tight md:text-5xl">
-            Two ways to hire me, sized to what you actually need.
+            I keep the team, the plan and the stakeholders in step.
           </h2>
+          <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground">
+            The last few years have been spent sitting between engineers, design, marketing, content and QA,
+            turning a rough idea into something shipped. The job is rarely the roadmap on its own. It is keeping
+            everyone pointed at the same thing, and being honest when it moves.
+          </p>
         </Reveal>
-        <div className="mt-16 grid gap-6 md:grid-cols-2">
-          {services.map((s, i) => (
-            <Reveal key={s.name} delay={i * 0.08}>
+
+        <div className="mt-16 grid gap-6 md:grid-cols-3">
+          {ways.map((w, i) => (
+            <Reveal key={w.name} delay={i * 0.08}>
               <div className="group relative flex h-full flex-col rounded-2xl border border-border bg-card p-8 transition hover:border-primary/60">
-                <div className="flex items-center justify-end">
-                  <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
-                    {s.length}
-                  </span>
+                <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary/70">
+                  {w.tag}
                 </div>
-                <h3 className="mt-6 font-sans text-3xl font-semibold">{s.name}</h3>
-                <p className="mt-4 text-sm leading-relaxed text-foreground/85">{s.body}</p>
-                <div className="mt-8 border-t border-border pt-4">
-                  <div className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
-                    Good fit for
-                  </div>
-                  <p className="mt-2 text-sm text-foreground/80">{s.for}</p>
-                </div>
+                <h3 className="mt-5 font-sans text-2xl font-semibold leading-snug">{w.name}</h3>
+                <p className="mt-4 text-sm leading-relaxed text-foreground/85">{w.body}</p>
               </div>
             </Reveal>
           ))}
         </div>
+
+        <Reveal delay={0.1}>
+          <p className="mt-14 max-w-2xl text-base leading-relaxed text-foreground/90">
+            I&rsquo;m now looking for a product role where I can work close to a team and stay with a product long
+            enough to see it through. If that sounds like what you&rsquo;ve got, I&rsquo;d be glad to hear about it.
+          </p>
+        </Reveal>
       </div>
     </section>
   );
