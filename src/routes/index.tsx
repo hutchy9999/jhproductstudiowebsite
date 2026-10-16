@@ -9,17 +9,17 @@ import jhLogo from "@/assets/jh-logo.png.asset.json";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "JH Product Studio, Contractor Product Manager" },
+      { title: "James Hutchinson, Product Manager | JH Product Studio" },
       {
         name: "description",
         content:
-          "James Hutchinson. Product Manager based in Manchester. Discovery to delivery, shipped iOS apps and web platforms.",
+          "Product manager shipping across B2B, B2C, SaaS and fintech. I work with engineering, design, marketing and QA to keep products on track and everyone aligned.",
       },
-      { property: "og:title", content: "JH Product Studio, Contractor Product Manager" },
+      { property: "og:title", content: "James Hutchinson, Product Manager | JH Product Studio" },
       {
         property: "og:description",
         content:
-          "James Hutchinson. Product Manager based in Manchester. Discovery to delivery, shipped iOS apps and web platforms.",
+          "Product manager shipping across B2B, B2C, SaaS and fintech. I work with engineering, design, marketing and QA to keep products on track and everyone aligned.",
       },
       { property: "og:url", content: "/" },
     ],

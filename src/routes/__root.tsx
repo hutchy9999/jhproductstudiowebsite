@@ -80,23 +80,23 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "JH Product Studio, Contractor Product Manager" },
+      { title: "James Hutchinson, Product Manager | JH Product Studio" },
       {
         name: "description",
         content:
-          "James Hutchinson. AI native contract Product Manager based in Manchester. Discovery to delivery, shipped iOS apps and web platforms.",
+          "Product manager shipping across B2B, B2C, SaaS and fintech. I work with engineering, design, marketing and QA to keep products on track and everyone aligned.",
       },
       { name: "author", content: "James Hutchinson" },
-      { property: "og:title", content: "JH Product Studio, Contractor Product Manager" },
+      { property: "og:title", content: "James Hutchinson, Product Manager | JH Product Studio" },
       {
         property: "og:description",
         content:
-          "James Hutchinson. AI native contract Product Manager based in Manchester. Discovery to delivery, shipped iOS apps and web platforms.",
+          "Product manager shipping across B2B, B2C, SaaS and fintech. I work with engineering, design, marketing and QA to keep products on track and everyone aligned.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "JH Product Studio, Contractor Product Manager" },
-      { name: "twitter:description", content: "James Hutchinson. AI native contract Product Manager based in Manchester. Discovery to delivery, shipped iOS apps and web platforms." },
+      { name: "twitter:title", content: "James Hutchinson, Product Manager | JH Product Studio" },
+      { name: "twitter:description", content: "Product manager shipping across B2B, B2C, SaaS and fintech. I work with engineering, design, marketing and QA to keep products on track and everyone aligned." },
       { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/e1357812-198b-433b-94c7-16c81202e18b/id-preview-948d606f--a5a0ea7a-b90c-4a9c-b949-d4154cce0cc9.lovable.app-1783452751818.png" },
       { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/e1357812-198b-433b-94c7-16c81202e18b/id-preview-948d606f--a5a0ea7a-b90c-4a9c-b949-d4154cce0cc9.lovable.app-1783452751818.png" },
     ],
