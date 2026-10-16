@@ -520,13 +520,6 @@ function Services() {
             </Reveal>
           ))}
         </div>
-
-        <Reveal delay={0.1}>
-          <p className="mt-14 max-w-2xl text-base leading-relaxed text-foreground/90">
-            I&rsquo;m now looking for a product role where I can work close to a team and stay with a product long
-            enough to see it through. If that sounds like what you&rsquo;ve got, I&rsquo;d be glad to hear about it.
-          </p>
-        </Reveal>
       </div>
     </section>
   );
