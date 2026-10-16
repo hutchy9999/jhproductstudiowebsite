@@ -107,11 +107,11 @@ function Hero() {
           transition={{ duration: 0.9, delay: 0.05, ease: [0.22, 1, 0.36, 1] }}
           className="mt-8 font-sans text-[clamp(2.75rem,7vw,6rem)] font-semibold leading-[0.98] tracking-tight"
         >
-          From discovery
+          Product Manager
           <br />
-          to delivery. <span className="italic text-primary">Faster</span>,
+          who turns <span className="italic text-primary">ideas</span>
           <br />
-          with AI.
+          into working products.
         </motion.h1>
 
         <motion.p
