@@ -1,10 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import type { ReactNode } from "react";
-import quicktradeScreenshot from "@/assets/quicktrade-screenshot.jpg.asset.json";
-import tastematchScreenshot from "@/assets/tastematch-screenshot.jpg.asset.json";
-import vocoHero from "@/assets/voco-hero.jpg.asset.json";
-import jhLogo from "@/assets/jh-logo.png.asset.json";
+import quicktradeScreenshot from "@/assets/quicktrade-screenshot.jpg";
+import tastematchScreenshot from "@/assets/tastematch-screenshot.jpg";
+import vocoHero from "@/assets/voco-hero.jpg";
+import jhLogo from "@/assets/jh-logo.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -21,9 +21,9 @@ export const Route = createFileRoute("/")({
         content:
           "Product manager shipping across B2B, B2C, SaaS and fintech. I work with engineering, design, marketing and QA to keep products on track and everyone aligned.",
       },
-      { property: "og:url", content: "/" },
+      { property: "og:url", content: "https://jhproductstudio.co.uk/" },
     ],
-    links: [{ rel: "canonical", href: "/" }],
+    links: [{ rel: "canonical", href: "https://jhproductstudio.co.uk/" }],
   }),
   component: Home,
 });
@@ -65,7 +65,7 @@ function Reveal({ children, delay = 0 }: { children: ReactNode; delay?: number }
 function Wordmark() {
   return (
     <a href="#top" className="group flex items-center" aria-label="JH Product Studio">
-      <img src={jhLogo.url} alt="JH Product Studio" className="h-20 w-auto md:h-[6.25rem]" />
+      <img src={jhLogo} alt="JH Product Studio" className="h-20 w-auto md:h-[6.25rem]" />
     </a>
   );
 }
@@ -291,7 +291,7 @@ function WorkSection() {
                   {w.name === "Voco" ? (
                     <div className="relative overflow-hidden rounded-2xl border border-border bg-gradient-to-br from-secondary/60 to-background">
                       <img
-                        src={vocoHero.url}
+                        src={vocoHero}
                         alt="Voco language learning platform"
                         className="h-full w-full object-contain"
                       />
@@ -299,7 +299,7 @@ function WorkSection() {
                   ) : w.name === "TasteMatch" ? (
                     <div className="relative overflow-hidden rounded-2xl border border-border bg-gradient-to-br from-secondary/60 to-background">
                       <img
-                        src={tastematchScreenshot.url}
+                        src={tastematchScreenshot}
                         alt="TasteMatch app on the App Store"
                         className="h-full w-full object-contain"
                       />
@@ -307,7 +307,7 @@ function WorkSection() {
                   ) : w.name === "QuickTrade" ? (
                     <div className="relative overflow-hidden rounded-2xl border border-border bg-gradient-to-br from-secondary/60 to-background">
                       <img
-                        src={quicktradeScreenshot.url}
+                        src={quicktradeScreenshot}
                         alt="QuickTrade app on the App Store"
                         className="h-full w-full object-contain"
                       />

@@ -8,10 +8,9 @@ import {
   Scripts,
   type ErrorComponentProps,
 } from "@tanstack/react-router";
-import { useEffect, type ReactNode } from "react";
+import type { ReactNode } from "react";
 
 import appCss from "../styles.css?url";
-import { reportLovableError } from "../lib/lovable-error-reporting";
 
 function NotFoundComponent() {
   return (
@@ -40,9 +39,6 @@ function NotFoundComponent() {
 function ErrorComponent({ error, reset }: ErrorComponentProps) {
   console.error(error);
   const router = useRouter();
-  useEffect(() => {
-    reportLovableError(error, { boundary: "tanstack_root_error_component" });
-  }, [error]);
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
@@ -97,8 +93,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "James Hutchinson, Product Manager | JH Product Studio" },
       { name: "twitter:description", content: "Product manager shipping across B2B, B2C, SaaS and fintech. I work with engineering, design, marketing and QA to keep products on track and everyone aligned." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/e1357812-198b-433b-94c7-16c81202e18b/id-preview-948d606f--a5a0ea7a-b90c-4a9c-b949-d4154cce0cc9.lovable.app-1783452751818.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/e1357812-198b-433b-94c7-16c81202e18b/id-preview-948d606f--a5a0ea7a-b90c-4a9c-b949-d4154cce0cc9.lovable.app-1783452751818.png" },
+      { property: "og:image", content: "https://jhproductstudio.co.uk/og-image.png" },
+      { name: "twitter:image", content: "https://jhproductstudio.co.uk/og-image.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
