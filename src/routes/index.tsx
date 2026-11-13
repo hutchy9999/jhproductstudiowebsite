@@ -36,6 +36,7 @@ const PHONE_HREF = "+447875104273";
 const nav = [
   { label: "Outcomes", href: "#outcomes" },
   { label: "Work", href: "#work" },
+  { label: "AI", href: "#ai" },
   { label: "How I work", href: "#services" },
   { label: "About", href: "#about" },
   { label: "Contact", href: "#contact" },
@@ -617,6 +618,97 @@ function ExperienceStrip() {
   );
 }
 
+function BuildingWithAI() {
+  const pipeline = [
+    { step: "Listen", tool: "Deepgram", d: "Live speech to text, shown as the learner speaks." },
+    { step: "Repair", tool: "Claude Haiku 4.5", d: "Fixes mishearings so the tutor replies to what they meant." },
+    { step: "Think", tool: "Claude Sonnet 5.5", d: "The tutor's brain: learner profile plus live topic research." },
+    { step: "Speak", tool: "ElevenLabs", d: "Human-sounding voices: 4 per language, 5 languages." },
+    { step: "Review", tool: "Claude Sonnet 4.6", d: "After the session: mistake feedback, built for accuracy." },
+  ];
+  const decisions = [
+    { t: "Fast where it feels live, accurate where it teaches", d: "Quick models for the live transcript, a slower and more accurate one for feedback." },
+    { t: "Forgiving by design", d: "Small errors are tolerated mid-conversation, so learners stay motivated." },
+    { t: "A learner profile that improves itself", d: "Strengths, weak spots and interests feed back into every session." },
+    { t: "Grounded in research, not guesswork", d: "Language learning psychology I researched is retrieved by the tutor in the moment." },
+    { t: "Analytics I built myself", d: "A custom admin panel for funnels, friction, feature use and conversation length, alongside Hotjar." },
+  ];
+  const process = [
+    { t: "Talk to users, then check the data", d: "Customer calls and messages, compared with funnels and my own walkthroughs." },
+    { t: "Mock it up first", d: "Claude Opus mocks up each feature on the live product before anything is built." },
+    { t: "Specify, then plan", d: "User stories and acceptance criteria, then an implementation plan for the existing codebase." },
+    { t: "One master document per project", d: "Every change and the reason for it, so each new agent starts with full context." },
+    { t: "QA after every change", d: "Claude tests desktop and mobile, then I test on staging before it reaches GitHub." },
+    { t: "Local, staging, live", d: "Releases tracked in GitHub, so I can roll back when needed." },
+  ];
+  return (
+    <section id="ai" className="py-28">
+      <div className="mx-auto max-w-6xl px-6">
+        <Reveal>
+          <SectionLabel n="04">Building with AI</SectionLabel>
+          <h2 className="mt-6 max-w-3xl font-sans text-4xl font-semibold leading-tight md:text-5xl">
+            How I design AI into products, and how I build them with AI agents.
+          </h2>
+          <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground">
+            I use AI as a thought partner, for rapid mockups and for implementation, and I keep the final say on what
+            gets built.
+          </p>
+        </Reveal>
+
+        <Reveal>
+          <div className="mt-16 border-t border-border pt-10">
+            <div className="font-mono text-[11px] uppercase tracking-[0.22em] text-primary">Case study</div>
+            <h3 className="mt-3 max-w-3xl font-sans text-3xl font-semibold md:text-4xl">Voco: an AI conversational language learning platform based on psychology</h3>
+            <p className="mt-3 max-w-2xl text-base leading-relaxed text-muted-foreground">
+              What happens in one conversation, and the choices behind it.
+            </p>
+            <div className="mt-8 grid gap-x-6 gap-y-6 md:grid-cols-5">
+              {pipeline.map((p, i) => (
+                <div key={p.step} className="border-l-2 border-primary/60 pl-4">
+                  <div className="font-mono text-xs text-primary">{String(i + 1).padStart(2, "0")}</div>
+                  <div className="mt-1 font-sans text-lg font-semibold">{p.step}</div>
+                  <div className="font-mono text-[11px] text-foreground/70">{p.tool}</div>
+                  <p className="mt-2 text-sm leading-snug text-muted-foreground">{p.d}</p>
+                </div>
+              ))}
+            </div>
+            <ul className="mt-10 grid gap-x-12 gap-y-5 md:grid-cols-2">
+              {decisions.map((d) => (
+                <li key={d.t} className="text-sm leading-snug">
+                  <span className="font-semibold text-foreground">{d.t}.</span>{" "}
+                  <span className="text-muted-foreground">{d.d}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </Reveal>
+
+        <Reveal>
+          <div className="mt-16 border-t border-border pt-10">
+            <div className="font-mono text-[11px] uppercase tracking-[0.22em] text-primary">
+              How I ship with AI agents
+            </div>
+            <h3 className="mt-3 max-w-2xl font-sans text-2xl font-semibold md:text-3xl">
+              AI agents move fast. I review every mockup and make the final call.
+            </h3>
+            <ul className="mt-8 grid gap-x-12 gap-y-5 md:grid-cols-2">
+              {process.map((p, i) => (
+                <li key={p.t} className="flex gap-4 text-sm leading-snug">
+                  <span className="font-mono text-xs text-primary">{String(i + 1).padStart(2, "0")}</span>
+                  <span>
+                    <span className="font-semibold text-foreground">{p.t}.</span>{" "}
+                    <span className="text-muted-foreground">{p.d}</span>
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
 function Services() {
   const ways = [
     {
@@ -639,7 +731,7 @@ function Services() {
     <section id="services" className="py-28">
       <div className="mx-auto max-w-6xl px-6">
         <Reveal>
-          <SectionLabel n="04">How I work</SectionLabel>
+          <SectionLabel n="05">How I work</SectionLabel>
           <h2 className="mt-6 max-w-3xl font-sans text-4xl font-semibold leading-tight md:text-5xl">
             I keep the team, the plan and the stakeholders in step.
           </h2>
@@ -708,7 +800,7 @@ function WorkingWithEngineers() {
     <section id="engineering" className="py-28">
       <div className="mx-auto max-w-6xl px-6">
         <Reveal>
-          <SectionLabel n="05">Working with engineers</SectionLabel>
+          <SectionLabel n="06">Working with engineers</SectionLabel>
           <h2 className="mt-6 max-w-3xl font-sans text-4xl font-semibold leading-tight md:text-5xl">
             I work with developers every day, not just at handover.
           </h2>
@@ -759,7 +851,7 @@ function About() {
     <section id="about" className="border-y border-border/60 bg-secondary/20 py-28">
       <div className="mx-auto grid max-w-6xl gap-16 px-6 md:grid-cols-12">
         <div className="md:col-span-4">
-          <SectionLabel n="06">About</SectionLabel>
+          <SectionLabel n="07">About</SectionLabel>
           <h2 className="mt-6 font-sans text-4xl font-semibold leading-tight">
             Shipped across every stage, from discovery to the App Store.
           </h2>
@@ -810,7 +902,7 @@ function Contact() {
     <section id="contact" className="py-32">
       <div className="mx-auto max-w-6xl px-6">
         <Reveal>
-          <SectionLabel n="07">Contact</SectionLabel>
+          <SectionLabel n="08">Contact</SectionLabel>
           <h2 className="mt-8 font-sans text-[clamp(2.5rem,6vw,5rem)] font-semibold leading-[1.02] tracking-tight">
             Got a product you&rsquo;re trying to move?
             <br />
@@ -889,6 +981,7 @@ function Home() {
         <ExperienceStrip />
         <Pillars />
         <WorkSection />
+        <BuildingWithAI />
         <Services />
         <WorkingWithEngineers />
         <About />
