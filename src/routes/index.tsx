@@ -514,12 +514,12 @@ function ExperienceStrip() {
     {
       metric: "30%",
       label: "conversion lift",
-      body: "Regatta Group. Ran structured A/B tests across product pages that pushed CVR up by as much as 30 percent, across fifteen sites and three brands.",
+      body: "Regatta Group. Ran a programme of A/B tests on product pages across up to fifteen sites and three brands. One test lifted conversion from product page to completed purchase from 2.3% to 3.0%, a 30% relative improvement.",
     },
     {
       metric: "14",
       label: "Software products shipped",
-      body: "Shipped across B2C, B2B, SaaS, finance and eCommerce. Also includes software across both web and native applications, balancing brand needs against tight deadlines.",
+      body: "Shipped across B2C, B2B, finance and eCommerce. Also includes software across both web and native applications, balancing brand needs against tight deadlines.",
     },
   ];
   return (
@@ -528,7 +528,7 @@ function ExperienceStrip() {
         <Reveal>
           <SectionLabel n="02">Recent numbers</SectionLabel>
           <h2 className="mt-6 max-w-3xl font-sans text-4xl font-semibold leading-tight">
-            Outcomes from the last few years in permanent product roles.
+            Outcomes from the last few years in product roles.
           </h2>
         </Reveal>
         <div className="mt-14 grid gap-10 md:grid-cols-2">
@@ -544,6 +544,73 @@ function ExperienceStrip() {
             </Reveal>
           ))}
         </div>
+
+        <Reveal>
+          <div className="mt-20 rounded-2xl border border-border bg-card p-8 md:p-10">
+            <div className="font-mono text-[11px] uppercase tracking-[0.22em] text-primary">Case study</div>
+            <h3 className="mt-3 max-w-3xl font-sans text-2xl font-semibold leading-tight md:text-3xl">
+              Product page experiments at Regatta Group
+            </h3>
+            <p className="mt-4 max-w-3xl text-sm leading-relaxed text-muted-foreground">
+              A programme of experiments to raise the conversion rate from viewing a product display page to
+              completing a transaction, run across Regatta Group&rsquo;s sites. Tests ran on all or some of the
+              fifteen sites, depending on which region each one was relevant for.
+            </p>
+
+            <div className="mt-10 grid gap-10 md:grid-cols-12">
+              <div className="md:col-span-4">
+                <div className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
+                  Product page to purchase
+                </div>
+                <div className="mt-4 flex items-baseline gap-3 font-sans font-bold">
+                  <span className="text-4xl text-foreground/60">2.3%</span>
+                  <span aria-hidden className="text-2xl text-primary">
+                    &rarr;
+                  </span>
+                  <span className="text-5xl text-primary">3.0%</span>
+                </div>
+                <p className="mt-3 text-sm text-muted-foreground">A 30% relative increase in conversion.</p>
+              </div>
+
+              <dl className="space-y-6 md:col-span-8">
+                <div>
+                  <dt className="font-mono text-[11px] uppercase tracking-[0.22em] text-primary">The insight</dt>
+                  <dd className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                    On mobile, the most important product information was sitting below the fold. Most visitors
+                    never saw it and left.
+                  </dd>
+                </div>
+                <div>
+                  <dt className="font-mono text-[11px] uppercase tracking-[0.22em] text-primary">The test</dt>
+                  <dd className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                    I rearranged the product page so the most relevant features appeared first. It ran as a 50/50
+                    A/B test for six weeks.
+                  </dd>
+                </div>
+                <div>
+                  <dt className="font-mono text-[11px] uppercase tracking-[0.22em] text-primary">
+                    What I had to manage
+                  </dt>
+                  <dd className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                    Stock availability, so the products in the test stayed in stock for the full six weeks, and
+                    traffic levels, so the test would collect enough data to reach a statistically valid result.
+                  </dd>
+                </div>
+                <div>
+                  <dt className="font-mono text-[11px] uppercase tracking-[0.22em] text-primary">
+                    Other experiments in the programme
+                  </dt>
+                  <dd className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                    <span className="text-foreground/90">Video alongside images.</span> A zero to one improvement,
+                    as many products only had photos.{" "}
+                    <span className="text-foreground/90">Image thumbnails below the main image.</span> Visitors
+                    could preview every image at a glance, without clicking left and right through the gallery.
+                  </dd>
+                </div>
+              </dl>
+            </div>
+          </div>
+        </Reveal>
       </div>
     </section>
   );
