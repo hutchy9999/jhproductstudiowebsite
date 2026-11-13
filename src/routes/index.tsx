@@ -34,6 +34,7 @@ const PHONE_DISPLAY = "07875 104 273";
 const PHONE_HREF = "+447875104273";
 
 const nav = [
+  { label: "Outcomes", href: "#outcomes" },
   { label: "Work", href: "#work" },
   { label: "How I work", href: "#services" },
   { label: "About", href: "#about" },
@@ -523,10 +524,10 @@ function ExperienceStrip() {
     },
   ];
   return (
-    <section className="border-y border-border/60 bg-secondary/20 py-24">
+    <section id="outcomes" className="border-y border-border/60 bg-secondary/20 py-24">
       <div className="mx-auto max-w-6xl px-6">
         <Reveal>
-          <SectionLabel n="02">Recent numbers</SectionLabel>
+          <SectionLabel n="02">Outcomes</SectionLabel>
           <h2 className="mt-6 max-w-3xl font-sans text-4xl font-semibold leading-tight">
             Outcomes from the last few years in product roles.
           </h2>
@@ -667,13 +668,98 @@ function Services() {
   );
 }
 
+function WorkingWithEngineers() {
+  const practices = [
+    {
+      t: "Working out how, together",
+      d: "I sit with developers to talk through how something could be done, so the plan is shaped by what is actually possible.",
+    },
+    {
+      t: "Learning about the data and backend",
+      d: "I learn how the data and backend side of the product works, so I can ask better questions and understand what a change really involves.",
+    },
+    {
+      t: "Learning their frameworks",
+      d: "I get to know the frameworks each team uses, so I can follow technical discussions and speak the same language.",
+    },
+    {
+      t: "Weighing the trade-offs",
+      d: "I weigh up the pros and cons of different approaches against deadlines, current functionality, risk and what is already planned, then agree the route with the team.",
+    },
+  ];
+  const roles = [
+    {
+      org: "Nova",
+      when: "Product Manager, 2021 to 2022",
+      body: "Ran two agile development teams at the same time, acting as product manager, product owner and scrum master. Worked with non-technical founders and liaised with third party vendors on integration projects.",
+    },
+    {
+      org: "Interactive Investor",
+      when: "Product Owner, 2023",
+      body: "Coordinated releases to the mobile app across the full development lifecycle, alongside UX, development and marketing teams.",
+    },
+    {
+      org: "Regatta Group",
+      when: "Group Product Owner, 2024 to 2026",
+      body: "Led delivery across 15 e-commerce sites and three brands, working with engineering, UX, marketing and merchandising.",
+    },
+  ];
+  return (
+    <section id="engineering" className="py-28">
+      <div className="mx-auto max-w-6xl px-6">
+        <Reveal>
+          <SectionLabel n="05">Working with engineers</SectionLabel>
+          <h2 className="mt-6 max-w-3xl font-sans text-4xl font-semibold leading-tight md:text-5xl">
+            I work with developers every day, not just at handover.
+          </h2>
+          <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground">
+            In every role at Nova, Interactive Investor and Regatta, I worked directly with software engineers in Agile
+            Scrum teams, running two week sprints. These are the habits that make that work.
+          </p>
+        </Reveal>
+
+        <div className="mt-14 grid gap-6 md:grid-cols-2">
+          {practices.map((p, i) => (
+            <Reveal key={p.t} delay={i * 0.06}>
+              <div className="h-full rounded-2xl border border-border bg-card p-8 transition hover:border-primary/60">
+                <div className="font-mono text-xs text-primary">{String(i + 1).padStart(2, "0")}</div>
+                <h3 className="mt-3 font-sans text-xl font-semibold">{p.t}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-foreground/85">{p.d}</p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+
+        <div className="mt-14 grid gap-10 border-t border-border pt-10 md:grid-cols-3">
+          {roles.map((r, i) => (
+            <Reveal key={r.org} delay={i * 0.08}>
+              <div>
+                <div className="font-sans text-lg font-semibold">{r.org}</div>
+                <div className="mt-1 font-mono text-[11px] uppercase tracking-[0.18em] text-primary">{r.when}</div>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{r.body}</p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+
+        <Reveal>
+          <p className="mt-12 max-w-2xl text-sm leading-relaxed text-muted-foreground">
+            On my own products I go a step further and build directly with Claude Code and Antigravity, so I am close to
+            the code as well as the conversation.
+          </p>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
 function About() {
   const tools = ["Claude Code", "Antigravity", "Jira", "Confluence", "Figma", "Notion", "GA4", "Mixpanel"];
   return (
     <section id="about" className="border-y border-border/60 bg-secondary/20 py-28">
       <div className="mx-auto grid max-w-6xl gap-16 px-6 md:grid-cols-12">
         <div className="md:col-span-4">
-          <SectionLabel n="05">About</SectionLabel>
+          <SectionLabel n="06">About</SectionLabel>
           <h2 className="mt-6 font-sans text-4xl font-semibold leading-tight">
             Shipped across every stage, from discovery to the App Store.
           </h2>
@@ -724,7 +810,7 @@ function Contact() {
     <section id="contact" className="py-32">
       <div className="mx-auto max-w-6xl px-6">
         <Reveal>
-          <SectionLabel n="06">Contact</SectionLabel>
+          <SectionLabel n="07">Contact</SectionLabel>
           <h2 className="mt-8 font-sans text-[clamp(2.5rem,6vw,5rem)] font-semibold leading-[1.02] tracking-tight">
             Got a product you&rsquo;re trying to move?
             <br />
@@ -804,6 +890,7 @@ function Home() {
         <Pillars />
         <WorkSection />
         <Services />
+        <WorkingWithEngineers />
         <About />
         <Contact />
       </main>
