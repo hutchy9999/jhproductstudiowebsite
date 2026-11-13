@@ -5,6 +5,7 @@ import quicktradeScreenshot from "@/assets/quicktrade-screenshot.jpg";
 import tastematchScreenshot from "@/assets/tastematch-screenshot.jpg";
 import vocoHero from "@/assets/voco-hero.jpg";
 import jhLogo from "@/assets/jh-logo.png";
+import feedbackBrainDashboard from "@/assets/feedback-brain-dashboard.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -184,18 +185,111 @@ function Pillars() {
   );
 }
 
+type Decision = { title: string; body: string };
+
 type Work = {
   name: string;
+  category: string;
   tag: string;
   summary: string;
   audience: string;
   problem: string;
   tech: string[];
+  image?: string;
+  imageAlt?: string;
+  href?: string;
+  linkLabel?: string;
+  deepDive?: {
+    heading: string;
+    intro: string;
+    decisions: Decision[];
+    flow: string;
+    stack: { name: string; role: string }[];
+  };
 };
 
 const work: Work[] = [
   {
+    name: "Feedback Brain",
+    category: "SaaS",
+    tag: "B2B SaaS, web, live with Free and Pro plans",
+    summary:
+      "A product prioritisation platform that turns scattered customer feedback into scored, ranked product decisions, built by a product manager for product managers.",
+    audience:
+      "Product managers and small product teams who collect feedback from support, email and interviews but have no time to tag it, weigh it and decide what to build first.",
+    problem:
+      "Feedback lives in spreadsheets and inboxes, so prioritisation ends up driven by whoever shouted last. Feedback Brain tags and scores each item with AI, learns the context of your website and analytics, and ranks themes by frequency and impact so the next thing to build is obvious.",
+    tech: ["React", "Supabase", "Gemini 2.5 Flash", "Firecrawl", "Stripe"],
+    image: feedbackBrainDashboard,
+    imageAlt: "Feedback Brain dashboard showing prioritised customer feedback",
+    href: "https://feedback-brain.com/",
+    linkLabel: "Open the Feedback Brain website",
+    deepDive: {
+      heading: "Product and technical decisions behind it",
+      intro:
+        "The decisions that shaped Feedback Brain, including what the AI is trusted to do, what code does instead, and what I left out on purpose.",
+      decisions: [
+        {
+          title: "AI judges each item, code does the ranking",
+          body: "The model assigns a 1 to 5 impact score, sentiment, tags and a summary for each piece of feedback. Everything after that is plain code: a database trigger keeps a running weighted average per theme, and priority is frequency multiplied by average impact. Keeping the ranking deterministic means results are explainable and cheap to recompute.",
+        },
+        {
+          title: "Structured output, not free text",
+          body: "Every analysis is forced through a strict schema (summary, 1 to 4 tags, sentiment, integer impact, reasoning), and the database rejects anything outside it. The AI can be wrong, but it can never break the product with a malformed answer.",
+        },
+        {
+          title: "Context changes the score",
+          body: "The product crawls up to ten pages of the customer's site, and can read an analytics screenshot with a vision model. High traffic or high bounce rate pages push the impact score up, and low traffic areas pull it down. Feedback is judged against where users actually struggle, not in isolation.",
+        },
+        {
+          title: "Data separation enforced in the database",
+          body: "Every table carries a user ID with row level security, so one customer can never read another's feedback, even through a direct query. Plan limits (websites and feedback items) are also enforced in the database, not just hidden in the interface.",
+        },
+        {
+          title: "Free and Pro plans with real billing",
+          body: "Two tiers with different limits, and subscription billing built end to end on Stripe: checkout, customer portal and webhooks for upgrades and cancellations. Pricing was set to be low friction for individual product managers.",
+        },
+        {
+          title: "What I chose not to build yet",
+          body: "No Jira, Slack or Zendesk integrations, no live analytics sync, no team workspaces and no emailed digests. Version one proves the single-user loop of feedback in, a ranked decision out, before adding integration cost.",
+        },
+      ],
+      flow: "Browser (React) → secure serverless function → AI model → Postgres database → dashboard",
+      stack: [
+        {
+          name: "React, Vite and Tailwind",
+          role: "The web app and dashboard. TanStack Query handles data fetching, and the CSV and Excel import is parsed in the browser.",
+        },
+        {
+          name: "Supabase Postgres",
+          role: "Stores feedback, themes, website context and subscriptions. Triggers update theme statistics, and row level security separates each customer's data.",
+        },
+        {
+          name: "Supabase Auth and Storage",
+          role: "Handles sign-in and sessions, and keeps uploaded screenshots in per-user folders.",
+        },
+        {
+          name: "Supabase Edge Functions",
+          role: "Serverless functions that run the AI analysis, weekly digest, website scan and billing logic, so no secrets reach the browser.",
+        },
+        {
+          name: "Gemini 2.5 Flash",
+          role: "The AI model, reached through an AI gateway. It tags and scores feedback, reads analytics screenshots with vision, and writes the weekly digest.",
+        },
+        {
+          name: "Firecrawl API",
+          role: "Crawls up to ten pages of a customer's site (two levels deep) so the AI understands what the product actually does.",
+        },
+        {
+          name: "Stripe",
+          role: "Checkout, customer portal and subscription webhooks, with signature verification so only genuine Stripe events change a plan.",
+        },
+      ],
+    },
+  },
+  {
     name: "TasteMatch",
+    category: "Consumer app",
     tag: "B2C, iOS, live on the App Store",
     summary: "An AI menu scanner that tells you exactly what to order, based on a taste profile it learns over time.",
     audience:
@@ -203,9 +297,14 @@ const work: Work[] = [
     problem:
       "People either pick something safe they have had before or gamble and regret it. TasteMatch learns your diet, allergens and spice tolerance, then ranks every dish with a match score, wildcards and dishes to skip.",
     tech: ["Expo", "React Native", "tRPC", "Supabase", "RevenueCat"],
+    image: tastematchScreenshot,
+    imageAlt: "TasteMatch app on the App Store",
+    href: "https://apps.apple.com/gb/app/tastematch-menu-scanner/id6758268491",
+    linkLabel: "Open TasteMatch on the App Store",
   },
   {
     name: "QuickTrade",
+    category: "Mobile app",
     tag: "B2B, iOS + Web, live on the App Store",
     summary:
       "A job management app for independent tradespeople, with a public booking link that automates the flow from enquiry to a calendar blocked job.",
@@ -213,9 +312,14 @@ const work: Work[] = [
     problem:
       "Tradespeople lose work because callbacks slip. QuickTrade gives each tradesperson a personal booking link. Customers submit a job, the tradesperson gets a push notification, and the calendar blocks the time automatically so nothing double books.",
     tech: ["React Native", "Vite + React", "Supabase", "Clerk", "Expo Push", "EAS"],
+    image: quicktradeScreenshot,
+    imageAlt: "QuickTrade app on the App Store",
+    href: "https://apps.apple.com/us/app/quicktrade-uk/id6760757208",
+    linkLabel: "Open QuickTrade on the App Store",
   },
   {
     name: "Voco",
+    category: "Web platform",
     tag: "B2B, Web platform",
     summary:
       "A conversational language learning platform where an AI tutor adapts to your level, topics and pace in real time.",
@@ -223,6 +327,10 @@ const work: Work[] = [
     problem:
       "Most learners plateau at intermediate because speaking is scary. Voco removes the friction with an AI tutor that never judges, adapts to the user's level, shows progress over time and shapes each session around their interests.",
     tech: ["React", "Hono", "Firestore", "Claude", "ElevenLabs", "Deepgram"],
+    image: vocoHero,
+    imageAlt: "Voco language learning platform",
+    href: "https://www.speakwithvoco.com/",
+    linkLabel: "Open the Voco website",
   },
 ];
 
@@ -233,136 +341,103 @@ function WorkSection() {
         <Reveal>
           <SectionLabel n="03">Selected work</SectionLabel>
           <h2 className="mt-6 max-w-3xl font-sans text-4xl font-semibold leading-tight md:text-5xl">
-            Three products I took from a blank page to shipped, using AI tooling end to end.
+            Four products I took from a blank page to shipped, using AI tooling end to end.
           </h2>
         </Reveal>
 
         <div className="mt-16 space-y-24">
-          {work.map((w, i) => (
-            <Reveal key={w.name} delay={0.05}>
-              <article
-                className={`grid gap-10 md:grid-cols-12 ${
-                  ["TasteMatch", "QuickTrade", "Voco"].includes(w.name) ? "cursor-pointer" : ""
-                }`}
-                role={["TasteMatch", "QuickTrade", "Voco"].includes(w.name) ? "link" : undefined}
-                tabIndex={["TasteMatch", "QuickTrade", "Voco"].includes(w.name) ? 0 : undefined}
-                aria-label={
-                  w.name === "TasteMatch"
-                    ? "Open TasteMatch on the App Store"
-                    : w.name === "QuickTrade"
-                      ? "Open QuickTrade on the App Store"
-                      : w.name === "Voco"
-                        ? "Open the Voco website"
-                        : undefined
-                }
-                onClick={
-                  ["TasteMatch", "QuickTrade", "Voco"].includes(w.name)
-                    ? () =>
-                        window.open(
-                          w.name === "TasteMatch"
-                            ? "https://apps.apple.com/gb/app/tastematch-menu-scanner/id6758268491"
-                            : w.name === "QuickTrade"
-                              ? "https://apps.apple.com/us/app/quicktrade-uk/id6760757208"
-                              : "https://www.speakwithvoco.com/",
-                          "_blank",
-                          "noopener,noreferrer",
-                        )
-                    : undefined
-                }
-                onKeyDown={
-                  ["TasteMatch", "QuickTrade", "Voco"].includes(w.name)
-                    ? (e) => {
-                        if (e.key === "Enter") {
-                          window.open(
-                            w.name === "TasteMatch"
-                              ? "https://apps.apple.com/gb/app/tastematch-menu-scanner/id6758268491"
-                              : w.name === "QuickTrade"
-                                ? "https://apps.apple.com/us/app/quicktrade-uk/id6760757208"
-                                : "https://www.speakwithvoco.com/",
-                            "_blank",
-                            "noopener,noreferrer",
-                          );
-                        }
-                      }
-                    : undefined
-                }
-              >
-                <div className={`md:col-span-5 ${i % 2 === 1 ? "md:order-2" : ""}`}>
-                  {w.name === "Voco" ? (
-                    <div className="relative overflow-hidden rounded-2xl border border-border bg-gradient-to-br from-secondary/60 to-background">
-                      <img
-                        src={vocoHero}
-                        alt="Voco language learning platform"
-                        className="h-full w-full object-contain"
-                      />
-                    </div>
-                  ) : w.name === "TasteMatch" ? (
-                    <div className="relative overflow-hidden rounded-2xl border border-border bg-gradient-to-br from-secondary/60 to-background">
-                      <img
-                        src={tastematchScreenshot}
-                        alt="TasteMatch app on the App Store"
-                        className="h-full w-full object-contain"
-                      />
-                    </div>
-                  ) : w.name === "QuickTrade" ? (
-                    <div className="relative overflow-hidden rounded-2xl border border-border bg-gradient-to-br from-secondary/60 to-background">
-                      <img
-                        src={quicktradeScreenshot}
-                        alt="QuickTrade app on the App Store"
-                        className="h-full w-full object-contain"
-                      />
-                    </div>
-                  ) : (
-                    <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-border bg-gradient-to-br from-secondary/60 to-background p-8">
-                      <div className="absolute inset-x-8 top-8 flex items-center justify-between font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
-                        <span>{w.name.toLowerCase()}.app</span>
-                        <span className="text-primary">live</span>
-                      </div>
-                      <div className="flex h-full flex-col justify-end">
-                        <div className="font-sans text-6xl font-bold leading-none text-foreground/90">{w.name}</div>
-                        <div className="mt-4 h-px w-16 bg-primary" />
-                        <div className="mt-4 font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
-                          {w.tag}
-                        </div>
-                      </div>
-                    </div>
-                  )}
-                </div>
+          {work.map((w, i) => {
+            return (
+              <Reveal key={w.name} delay={0.05}>
+                <article className="grid gap-10 md:grid-cols-12">
+                  <div className={`md:col-span-5 ${i % 2 === 1 ? "md:order-2" : ""}`}>
+                    <a
+                      href={w.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={w.linkLabel}
+                      className="relative block overflow-hidden rounded-2xl border border-border bg-gradient-to-br from-secondary/60 to-background transition hover:border-primary/60"
+                    >
+                      <img src={w.image} alt={w.imageAlt} className="h-full w-full object-contain" />
+                    </a>
+                  </div>
 
-                <div className={`md:col-span-7 ${i % 2 === 1 ? "md:order-1" : ""}`}>
-                  <h3 className="font-sans text-3xl font-semibold md:text-4xl">{w.name}</h3>
-                  <p className="mt-4 text-lg leading-relaxed text-foreground/90">{w.summary}</p>
-                  <dl className="mt-8 space-y-6">
-                    <div>
-                      <dt className="font-mono text-[11px] uppercase tracking-[0.22em] text-primary">
-                        Who it&rsquo;s for
-                      </dt>
-                      <dd className="mt-2 text-sm leading-relaxed text-muted-foreground">{w.audience}</dd>
+                  <div className={`md:col-span-7 ${i % 2 === 1 ? "md:order-1" : ""}`}>
+                    <span className="inline-block rounded-full border border-primary/50 bg-primary/10 px-3 py-1 font-mono text-[11px] uppercase tracking-[0.22em] text-primary">
+                      {w.category}
+                    </span>
+                    <h3 className="mt-4 font-sans text-3xl font-semibold md:text-4xl">{w.name}</h3>
+                    <p className="mt-4 text-lg leading-relaxed text-foreground/90">{w.summary}</p>
+                    <dl className="mt-8 space-y-6">
+                      <div>
+                        <dt className="font-mono text-[11px] uppercase tracking-[0.22em] text-primary">
+                          Who it&rsquo;s for
+                        </dt>
+                        <dd className="mt-2 text-sm leading-relaxed text-muted-foreground">{w.audience}</dd>
+                      </div>
+                      <div>
+                        <dt className="font-mono text-[11px] uppercase tracking-[0.22em] text-primary">
+                          Problem it solves
+                        </dt>
+                        <dd className="mt-2 text-sm leading-relaxed text-muted-foreground">{w.problem}</dd>
+                      </div>
+                      <div>
+                        <dt className="font-mono text-[11px] uppercase tracking-[0.22em] text-primary">Built with</dt>
+                        <dd className="mt-3 flex flex-wrap gap-2">
+                          {w.tech.map((t) => (
+                            <span
+                              key={t}
+                              className="rounded-full border border-border bg-secondary/40 px-3 py-1 font-mono text-[11px] text-foreground/80"
+                            >
+                              {t}
+                            </span>
+                          ))}
+                        </dd>
+                      </div>
+                    </dl>
+                  </div>
+                </article>
+
+                {w.deepDive && (
+                  <div className="mt-14 rounded-2xl border border-border bg-secondary/20 p-8 md:p-10">
+                    <div className="font-mono text-[11px] uppercase tracking-[0.22em] text-primary">
+                      Behind the product
                     </div>
-                    <div>
-                      <dt className="font-mono text-[11px] uppercase tracking-[0.22em] text-primary">
-                        Problem it solves
-                      </dt>
-                      <dd className="mt-2 text-sm leading-relaxed text-muted-foreground">{w.problem}</dd>
+                    <h4 className="mt-3 font-sans text-2xl font-semibold md:text-3xl">{w.deepDive.heading}</h4>
+                    <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted-foreground">
+                      {w.deepDive.intro}
+                    </p>
+                    <div className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+                      {w.deepDive.decisions.map((d) => (
+                        <div key={d.title} className="rounded-xl border border-border bg-card p-6">
+                          <h5 className="font-sans text-lg font-semibold leading-snug">{d.title}</h5>
+                          <p className="mt-3 text-sm leading-relaxed text-foreground/85">{d.body}</p>
+                        </div>
+                      ))}
                     </div>
-                    <div>
-                      <dt className="font-mono text-[11px] uppercase tracking-[0.22em] text-primary">Built with</dt>
-                      <dd className="mt-3 flex flex-wrap gap-2">
-                        {w.tech.map((t) => (
-                          <span
-                            key={t}
-                            className="rounded-full border border-border bg-secondary/40 px-3 py-1 font-mono text-[11px] text-foreground/80"
-                          >
-                            {t}
-                          </span>
+
+                    <div className="mt-14 border-t border-border pt-10">
+                      <div className="font-mono text-[11px] uppercase tracking-[0.22em] text-primary">
+                        Under the hood
+                      </div>
+                      <h4 className="mt-3 font-sans text-2xl font-semibold">What each service does</h4>
+                      <p className="mt-3 font-mono text-xs leading-relaxed text-muted-foreground">
+                        {w.deepDive.flow}
+                      </p>
+                      <dl className="mt-8 grid gap-x-10 gap-y-6 md:grid-cols-2">
+                        {w.deepDive.stack.map((t) => (
+                          <div key={t.name} className="border-l border-primary/40 pl-4">
+                            <dt className="font-sans text-base font-semibold">{t.name}</dt>
+                            <dd className="mt-1 text-sm leading-relaxed text-muted-foreground">{t.role}</dd>
+                          </div>
                         ))}
-                      </dd>
+                      </dl>
                     </div>
-                  </dl>
-                </div>
-              </article>
-            </Reveal>
-          ))}
+                  </div>
+                )}
+              </Reveal>
+            );
+          })}
         </div>
       </div>
     </section>
