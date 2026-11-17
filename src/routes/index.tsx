@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import type { ReactNode } from "react";
+import { useState, type ReactNode } from "react";
 import quicktradeScreenshot from "@/assets/quicktrade-screenshot.jpg";
 import tastematchScreenshot from "@/assets/tastematch-screenshot.jpg";
 import vocoHero from "@/assets/voco-hero.jpg";
@@ -74,6 +74,7 @@ function Wordmark() {
 }
 
 function Nav() {
+  const [open, setOpen] = useState(false);
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-border/60 bg-background/70 backdrop-blur-md">
       <div className="mx-auto flex h-[6.25rem] max-w-6xl items-center justify-between px-6 md:h-[7.5rem]">
@@ -95,7 +96,44 @@ function Nav() {
         >
           Get in touch
         </a>
+        <button
+          type="button"
+          aria-label={open ? "Close menu" : "Open menu"}
+          aria-expanded={open}
+          aria-controls="mobile-menu"
+          onClick={() => setOpen((o) => !o)}
+          className="flex h-11 w-11 items-center justify-center rounded-full border border-border text-foreground md:hidden"
+        >
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round">
+            {open ? (
+              <path d="M4 4l12 12M16 4L4 16" />
+            ) : (
+              <path d="M3 6h14M3 10h14M3 14h14" />
+            )}
+          </svg>
+        </button>
       </div>
+      {open && (
+        <nav id="mobile-menu" className="border-t border-border/60 bg-background/95 px-6 pb-6 pt-2 md:hidden">
+          {nav.map((n) => (
+            <a
+              key={n.href}
+              href={n.href}
+              onClick={() => setOpen(false)}
+              className="block border-b border-border/40 py-4 font-mono text-sm uppercase tracking-[0.18em] text-foreground/90"
+            >
+              {n.label}
+            </a>
+          ))}
+          <a
+            href={`mailto:${EMAIL}`}
+            onClick={() => setOpen(false)}
+            className="mt-5 inline-flex rounded-full bg-primary px-5 py-3 font-mono text-xs uppercase tracking-[0.18em] text-primary-foreground"
+          >
+            Get in touch
+          </a>
+        </nav>
+      )}
     </header>
   );
 }
