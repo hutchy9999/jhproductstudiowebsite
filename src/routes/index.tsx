@@ -112,9 +112,9 @@ function Hero() {
         >
           Product Manager
           <br />
-          who turns <span className="italic text-primary">ideas</span>
+          delivering
           <br />
-          into working products.
+          <span className="italic text-primary">measurable results.</span>
         </motion.h1>
 
         <motion.p
@@ -123,8 +123,8 @@ function Hero() {
           transition={{ duration: 0.9, delay: 0.15 }}
           className="mt-8 max-w-xl text-lg leading-relaxed text-muted-foreground"
         >
-          I&rsquo;m James, a Product Manager based in the North West. I combine product thinking, customer discovery and
-          hands-on AI development to take ideas from discovery to working solutions.
+          I&rsquo;m James, a Product Manager and Product Owner based in the North West. I lead agile delivery with
+          engineering teams across e-commerce and investing, and I build AI-powered products of my own.
         </motion.p>
 
         <motion.div
