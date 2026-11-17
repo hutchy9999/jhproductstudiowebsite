@@ -44,7 +44,7 @@ const nav = [
 
 function SectionLabel({ n, children }: { n: string; children: ReactNode }) {
   return (
-    <div className="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.22em] text-muted-foreground">
+    <div className="flex items-center gap-3 font-mono text-[13px] uppercase tracking-[0.22em] text-muted-foreground">
       <span className="text-primary">{n}</span>
       <span className="h-px w-8 bg-border" />
       <span>{children}</span>
@@ -84,7 +84,7 @@ function Nav() {
             <a
               key={n.href}
               href={n.href}
-              className="font-mono text-xs uppercase tracking-[0.18em] text-muted-foreground transition hover:text-foreground"
+              className="font-mono text-[13px] uppercase tracking-[0.18em] text-muted-foreground transition hover:text-foreground"
             >
               {n.label}
             </a>
@@ -92,7 +92,7 @@ function Nav() {
         </nav>
         <a
           href={`mailto:${EMAIL}`}
-          className="hidden rounded-full bg-primary px-4 py-2 font-mono text-xs uppercase tracking-[0.18em] text-primary-foreground transition hover:opacity-90 md:inline-flex"
+          className="hidden rounded-full bg-primary px-4 py-2 font-mono text-[13px] uppercase tracking-[0.18em] text-primary-foreground transition hover:opacity-90 md:inline-flex"
         >
           Get in touch
         </a>
@@ -120,7 +120,7 @@ function Nav() {
               key={n.href}
               href={n.href}
               onClick={() => setOpen(false)}
-              className="block border-b border-border/40 py-4 font-mono text-sm uppercase tracking-[0.18em] text-foreground/90"
+              className="block border-b border-border/40 py-4 font-mono text-[15px] uppercase tracking-[0.18em] text-foreground"
             >
               {n.label}
             </a>
@@ -128,7 +128,7 @@ function Nav() {
           <a
             href={`mailto:${EMAIL}`}
             onClick={() => setOpen(false)}
-            className="mt-5 inline-flex rounded-full bg-primary px-5 py-3 font-mono text-xs uppercase tracking-[0.18em] text-primary-foreground"
+            className="mt-5 inline-flex rounded-full bg-primary px-5 py-3 font-mono text-[13px] uppercase tracking-[0.18em] text-primary-foreground"
           >
             Get in touch
           </a>
@@ -173,14 +173,14 @@ function Hero() {
         >
           <a
             href={`mailto:${EMAIL}`}
-            className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition hover:opacity-90"
+            className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-[15px] font-medium text-primary-foreground transition hover:opacity-90"
           >
             Start a conversation
             <span aria-hidden>&rarr;</span>
           </a>
           <a
             href="#work"
-            className="inline-flex items-center gap-2 rounded-full border border-input px-6 py-3 text-sm font-medium text-foreground transition hover:bg-secondary"
+            className="inline-flex items-center gap-2 rounded-full border border-input px-6 py-3 text-[15px] font-medium text-foreground transition hover:bg-secondary"
           >
             See selected work
           </a>
@@ -214,9 +214,9 @@ function Pillars() {
         {items.map((i, idx) => (
           <Reveal key={i.k} delay={idx * 0.08}>
             <div>
-              <div className="font-mono text-xs text-primary">{i.k}</div>
+              <div className="font-mono text-[13px] text-primary">{i.k}</div>
               <h3 className="mt-3 font-sans text-2xl font-semibold">{i.t}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{i.d}</p>
+              <p className="mt-3 text-[15px] leading-relaxed text-muted-foreground">{i.d}</p>
             </div>
           </Reveal>
         ))}
@@ -403,31 +403,31 @@ function WorkSection() {
                   </div>
 
                   <div className={`md:col-span-7 ${i % 2 === 1 ? "md:order-1" : ""}`}>
-                    <span className="inline-block rounded-full border border-primary/50 bg-primary/10 px-3 py-1 font-mono text-[11px] uppercase tracking-[0.22em] text-primary">
+                    <span className="inline-block rounded-full border border-primary/50 bg-primary/10 px-3 py-1 font-mono text-[12.5px] uppercase tracking-[0.22em] text-primary">
                       {w.category}
                     </span>
                     <h3 className="mt-4 font-sans text-3xl font-semibold md:text-4xl">{w.name}</h3>
-                    <p className="mt-4 text-lg leading-relaxed text-foreground/90">{w.summary}</p>
+                    <p className="mt-4 text-lg leading-relaxed text-foreground">{w.summary}</p>
                     <dl className="mt-8 space-y-6">
                       <div>
-                        <dt className="font-mono text-[11px] uppercase tracking-[0.22em] text-primary">
+                        <dt className="font-mono text-[12.5px] uppercase tracking-[0.22em] text-primary">
                           Who it&rsquo;s for
                         </dt>
-                        <dd className="mt-2 text-sm leading-relaxed text-muted-foreground">{w.audience}</dd>
+                        <dd className="mt-2 text-[15px] leading-relaxed text-muted-foreground">{w.audience}</dd>
                       </div>
                       <div>
-                        <dt className="font-mono text-[11px] uppercase tracking-[0.22em] text-primary">
+                        <dt className="font-mono text-[12.5px] uppercase tracking-[0.22em] text-primary">
                           Problem it solves
                         </dt>
-                        <dd className="mt-2 text-sm leading-relaxed text-muted-foreground">{w.problem}</dd>
+                        <dd className="mt-2 text-[15px] leading-relaxed text-muted-foreground">{w.problem}</dd>
                       </div>
                       <div>
-                        <dt className="font-mono text-[11px] uppercase tracking-[0.22em] text-primary">Built with</dt>
+                        <dt className="font-mono text-[12.5px] uppercase tracking-[0.22em] text-primary">Built with</dt>
                         <dd className="mt-3 flex flex-wrap gap-2">
                           {w.tech.map((t) => (
                             <span
                               key={t}
-                              className="rounded-full border border-border bg-secondary/40 px-3 py-1 font-mono text-[11px] text-foreground/80"
+                              className="rounded-full border border-border bg-secondary/40 px-3 py-1 font-mono text-[12.5px] text-foreground/95"
                             >
                               {t}
                             </span>
@@ -440,35 +440,35 @@ function WorkSection() {
 
                 {w.deepDive && (
                   <div className="mt-14 rounded-2xl border border-border bg-secondary/20 p-8 md:p-10">
-                    <div className="font-mono text-[11px] uppercase tracking-[0.22em] text-primary">
+                    <div className="font-mono text-[12.5px] uppercase tracking-[0.22em] text-primary">
                       Behind the product
                     </div>
                     <h4 className="mt-3 font-sans text-2xl font-semibold md:text-3xl">{w.deepDive.heading}</h4>
-                    <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted-foreground">
+                    <p className="mt-3 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
                       {w.deepDive.intro}
                     </p>
                     <div className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
                       {w.deepDive.decisions.map((d) => (
                         <div key={d.title} className="rounded-xl border border-border bg-card p-6">
                           <h5 className="font-sans text-lg font-semibold leading-snug">{d.title}</h5>
-                          <p className="mt-3 text-sm leading-relaxed text-foreground/85">{d.body}</p>
+                          <p className="mt-3 text-[15px] leading-relaxed text-foreground/95">{d.body}</p>
                         </div>
                       ))}
                     </div>
 
                     <div className="mt-14 border-t border-border pt-10">
-                      <div className="font-mono text-[11px] uppercase tracking-[0.22em] text-primary">
+                      <div className="font-mono text-[12.5px] uppercase tracking-[0.22em] text-primary">
                         Under the hood
                       </div>
                       <h4 className="mt-3 font-sans text-2xl font-semibold">What each service does</h4>
-                      <p className="mt-3 font-mono text-xs leading-relaxed text-muted-foreground">
+                      <p className="mt-3 font-mono text-[13px] leading-relaxed text-muted-foreground">
                         {w.deepDive.flow}
                       </p>
                       <dl className="mt-8 grid gap-x-10 gap-y-6 md:grid-cols-2">
                         {w.deepDive.stack.map((t) => (
                           <div key={t.name} className="border-l border-primary/40 pl-4">
                             <dt className="font-sans text-base font-semibold">{t.name}</dt>
-                            <dd className="mt-1 text-sm leading-relaxed text-muted-foreground">{t.role}</dd>
+                            <dd className="mt-1 text-[15px] leading-relaxed text-muted-foreground">{t.role}</dd>
                           </div>
                         ))}
                       </dl>
@@ -533,10 +533,10 @@ function Testimonials() {
             <Reveal key={t.name} delay={i * 0.05}>
               <div className="group relative flex h-full flex-col rounded-2xl border border-border bg-card p-8 transition hover:border-primary/60">
                 <div className="mb-6 font-sans text-4xl leading-none text-primary/30">&ldquo;</div>
-                <p className="flex-1 text-base leading-relaxed text-foreground/90">{t.quote}</p>
+                <p className="flex-1 text-base leading-relaxed text-foreground">{t.quote}</p>
                 <div className="mt-8 border-t border-border pt-6">
                   <div className="font-sans text-lg font-semibold">{t.name}</div>
-                  <div className="mt-1 font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
+                  <div className="mt-1 font-mono text-[12.5px] uppercase tracking-[0.22em] text-muted-foreground">
                     {t.role}
                   </div>
                 </div>
@@ -576,10 +576,10 @@ function ExperienceStrip() {
             <Reveal key={it.metric} delay={i * 0.08}>
               <div className="border-t border-border pt-6">
                 <div className="font-sans text-6xl font-bold text-primary">{it.metric}</div>
-                <div className="mt-2 font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
+                <div className="mt-2 font-mono text-[12.5px] uppercase tracking-[0.22em] text-muted-foreground">
                   {it.label}
                 </div>
-                <p className="mt-6 text-sm leading-relaxed text-foreground/85">{it.body}</p>
+                <p className="mt-6 text-[15px] leading-relaxed text-foreground/95">{it.body}</p>
               </div>
             </Reveal>
           ))}
@@ -587,11 +587,11 @@ function ExperienceStrip() {
 
         <Reveal>
           <div className="mt-20 rounded-2xl border border-border bg-card p-8 md:p-10">
-            <div className="font-mono text-[11px] uppercase tracking-[0.22em] text-primary">Case study</div>
+            <div className="font-mono text-[12.5px] uppercase tracking-[0.22em] text-primary">Case study</div>
             <h3 className="mt-3 max-w-3xl font-sans text-2xl font-semibold leading-tight md:text-3xl">
               Product page experiments at Regatta Group
             </h3>
-            <p className="mt-4 max-w-3xl text-sm leading-relaxed text-muted-foreground">
+            <p className="mt-4 max-w-3xl text-[15px] leading-relaxed text-muted-foreground">
               A programme of experiments to raise the conversion rate from viewing a product display page to
               completing a transaction, run across Regatta Group&rsquo;s sites. Tests ran on all or some of the
               fifteen sites, depending on which region each one was relevant for.
@@ -599,51 +599,51 @@ function ExperienceStrip() {
 
             <div className="mt-10 grid gap-10 md:grid-cols-12">
               <div className="md:col-span-4">
-                <div className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
+                <div className="font-mono text-[12.5px] uppercase tracking-[0.22em] text-muted-foreground">
                   Product page to purchase
                 </div>
                 <div className="mt-4 flex items-baseline gap-3 font-sans font-bold">
-                  <span className="text-4xl text-foreground/60">2.3%</span>
+                  <span className="text-4xl text-foreground/95">2.3%</span>
                   <span aria-hidden className="text-2xl text-primary">
                     &rarr;
                   </span>
                   <span className="text-5xl text-primary">3.0%</span>
                 </div>
-                <p className="mt-3 text-sm text-muted-foreground">A 30% relative increase in conversion.</p>
+                <p className="mt-3 text-[15px] text-muted-foreground">A 30% relative increase in conversion.</p>
               </div>
 
               <dl className="space-y-6 md:col-span-8">
                 <div>
-                  <dt className="font-mono text-[11px] uppercase tracking-[0.22em] text-primary">The insight</dt>
-                  <dd className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  <dt className="font-mono text-[12.5px] uppercase tracking-[0.22em] text-primary">The insight</dt>
+                  <dd className="mt-2 text-[15px] leading-relaxed text-muted-foreground">
                     On mobile, the most important product information was sitting below the fold. Most visitors
                     never saw it and left.
                   </dd>
                 </div>
                 <div>
-                  <dt className="font-mono text-[11px] uppercase tracking-[0.22em] text-primary">The test</dt>
-                  <dd className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  <dt className="font-mono text-[12.5px] uppercase tracking-[0.22em] text-primary">The test</dt>
+                  <dd className="mt-2 text-[15px] leading-relaxed text-muted-foreground">
                     I rearranged the product page so the most relevant features appeared first. It ran as a 50/50
                     A/B test for six weeks.
                   </dd>
                 </div>
                 <div>
-                  <dt className="font-mono text-[11px] uppercase tracking-[0.22em] text-primary">
+                  <dt className="font-mono text-[12.5px] uppercase tracking-[0.22em] text-primary">
                     What I had to manage
                   </dt>
-                  <dd className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  <dd className="mt-2 text-[15px] leading-relaxed text-muted-foreground">
                     Stock availability, so the products in the test stayed in stock for the full six weeks, and
                     traffic levels, so the test would collect enough data to reach a statistically valid result.
                   </dd>
                 </div>
                 <div>
-                  <dt className="font-mono text-[11px] uppercase tracking-[0.22em] text-primary">
+                  <dt className="font-mono text-[12.5px] uppercase tracking-[0.22em] text-primary">
                     Other experiments in the programme
                   </dt>
-                  <dd className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                    <span className="text-foreground/90">Video alongside images.</span> A zero to one improvement,
+                  <dd className="mt-2 text-[15px] leading-relaxed text-muted-foreground">
+                    <span className="text-foreground">Video alongside images.</span> A zero to one improvement,
                     as many products only had photos.{" "}
-                    <span className="text-foreground/90">Image thumbnails below the main image.</span> Visitors
+                    <span className="text-foreground">Image thumbnails below the main image.</span> Visitors
                     could preview every image at a glance, without clicking left and right through the gallery.
                   </dd>
                 </div>
@@ -695,7 +695,7 @@ function BuildingWithAI() {
 
         <Reveal>
           <div className="mt-16 border-t border-border pt-10">
-            <div className="font-mono text-[11px] uppercase tracking-[0.22em] text-primary">Case study</div>
+            <div className="font-mono text-[12.5px] uppercase tracking-[0.22em] text-primary">Case study</div>
             <h3 className="mt-3 max-w-3xl font-sans text-3xl font-semibold md:text-4xl">Voco: an AI conversational language learning platform based on psychology</h3>
             <p className="mt-3 max-w-2xl text-base leading-relaxed text-muted-foreground">
               What happens in one conversation, and the choices behind it.
@@ -703,16 +703,16 @@ function BuildingWithAI() {
             <div className="mt-8 grid gap-x-6 gap-y-6 md:grid-cols-5">
               {pipeline.map((p, i) => (
                 <div key={p.step} className="border-l-2 border-primary/60 pl-4">
-                  <div className="font-mono text-xs text-primary">{String(i + 1).padStart(2, "0")}</div>
+                  <div className="font-mono text-[13px] text-primary">{String(i + 1).padStart(2, "0")}</div>
                   <div className="mt-1 font-sans text-lg font-semibold">{p.step}</div>
-                  <div className="font-mono text-[11px] text-foreground/70">{p.tool}</div>
-                  <p className="mt-2 text-sm leading-snug text-muted-foreground">{p.d}</p>
+                  <div className="font-mono text-[12.5px] text-foreground">{p.tool}</div>
+                  <p className="mt-2 text-[15px] leading-snug text-muted-foreground">{p.d}</p>
                 </div>
               ))}
             </div>
             <ul className="mt-10 grid gap-x-12 gap-y-5 md:grid-cols-2">
               {decisions.map((d) => (
-                <li key={d.t} className="text-sm leading-snug">
+                <li key={d.t} className="text-[15px] leading-snug">
                   <span className="font-semibold text-foreground">{d.t}.</span>{" "}
                   <span className="text-muted-foreground">{d.d}</span>
                 </li>
@@ -723,7 +723,7 @@ function BuildingWithAI() {
 
         <Reveal>
           <div className="mt-16 border-t border-border pt-10">
-            <div className="font-mono text-[11px] uppercase tracking-[0.22em] text-primary">
+            <div className="font-mono text-[12.5px] uppercase tracking-[0.22em] text-primary">
               How I ship with AI agents
             </div>
             <h3 className="mt-3 max-w-2xl font-sans text-2xl font-semibold md:text-3xl">
@@ -731,8 +731,8 @@ function BuildingWithAI() {
             </h3>
             <ul className="mt-8 grid gap-x-12 gap-y-5 md:grid-cols-2">
               {process.map((p, i) => (
-                <li key={p.t} className="flex gap-4 text-sm leading-snug">
-                  <span className="font-mono text-xs text-primary">{String(i + 1).padStart(2, "0")}</span>
+                <li key={p.t} className="flex gap-4 text-[15px] leading-snug">
+                  <span className="font-mono text-[13px] text-primary">{String(i + 1).padStart(2, "0")}</span>
                   <span>
                     <span className="font-semibold text-foreground">{p.t}.</span>{" "}
                     <span className="text-muted-foreground">{p.d}</span>
@@ -784,11 +784,11 @@ function Services() {
           {ways.map((w, i) => (
             <Reveal key={w.name} delay={i * 0.08}>
               <div className="group relative flex h-full flex-col rounded-2xl border border-border bg-card p-8 transition hover:border-primary/60">
-                <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary/70">
+                <div className="font-mono text-[13px] uppercase tracking-[0.22em] text-primary/70">
                   {w.tag}
                 </div>
                 <h3 className="mt-5 font-sans text-2xl font-semibold leading-snug">{w.name}</h3>
-                <p className="mt-4 text-sm leading-relaxed text-foreground/85">{w.body}</p>
+                <p className="mt-4 text-[15px] leading-relaxed text-foreground/95">{w.body}</p>
               </div>
             </Reveal>
           ))}
@@ -852,9 +852,9 @@ function WorkingWithEngineers() {
           {practices.map((p, i) => (
             <Reveal key={p.t} delay={i * 0.06}>
               <div className="h-full rounded-2xl border border-border bg-card p-8 transition hover:border-primary/60">
-                <div className="font-mono text-xs text-primary">{String(i + 1).padStart(2, "0")}</div>
+                <div className="font-mono text-[13px] text-primary">{String(i + 1).padStart(2, "0")}</div>
                 <h3 className="mt-3 font-sans text-xl font-semibold">{p.t}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-foreground/85">{p.d}</p>
+                <p className="mt-3 text-[15px] leading-relaxed text-foreground/95">{p.d}</p>
               </div>
             </Reveal>
           ))}
@@ -865,15 +865,15 @@ function WorkingWithEngineers() {
             <Reveal key={r.org} delay={i * 0.08}>
               <div>
                 <div className="font-sans text-lg font-semibold">{r.org}</div>
-                <div className="mt-1 font-mono text-[11px] uppercase tracking-[0.18em] text-primary">{r.when}</div>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{r.body}</p>
+                <div className="mt-1 font-mono text-[12.5px] uppercase tracking-[0.18em] text-primary">{r.when}</div>
+                <p className="mt-3 text-[15px] leading-relaxed text-muted-foreground">{r.body}</p>
               </div>
             </Reveal>
           ))}
         </div>
 
         <Reveal>
-          <p className="mt-12 max-w-2xl text-sm leading-relaxed text-muted-foreground">
+          <p className="mt-12 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
             On my own products I go a step further and build directly with Claude Code and Antigravity, so I am close to
             the code as well as the conversation.
           </p>
@@ -896,17 +896,17 @@ function About() {
         </div>
         <div className="space-y-6 md:col-span-8">
           <Reveal>
-            <p className="text-lg leading-relaxed text-foreground/90">
+            <p className="text-lg leading-relaxed text-foreground">
               I&rsquo;ve worked across B2C, B2B, SaaS, fintech and e-commerce. Group Product Owner at Regatta, Product
               Owner on the mobile app at Interactive Investor, and Product Manager at Nova, a venture builder in
               Liverpool where I ran two agile teams at once.
             </p>
-            <p className="mt-4 text-lg leading-relaxed text-foreground/90">
+            <p className="mt-4 text-lg leading-relaxed text-foreground">
               Since the AI tooling caught up, I&rsquo;ve been building solo. Two native iOS apps and one web platform,
               shipped end to end. I know what it takes to move a real product forward because I&rsquo;m doing it every
               week.
             </p>
-            <p className="mt-4 text-lg leading-relaxed text-foreground/90">
+            <p className="mt-4 text-lg leading-relaxed text-foreground">
               Based in Manchester. Certified Scrum Product Owner. Available remote across the UK, and on site when
               it&rsquo;s the right call.
             </p>
@@ -914,14 +914,14 @@ function About() {
 
           <Reveal delay={0.1}>
             <div className="mt-10 border-t border-border pt-6">
-              <div className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
+              <div className="font-mono text-[12.5px] uppercase tracking-[0.22em] text-muted-foreground">
                 Tools I reach for
               </div>
               <div className="mt-4 flex flex-wrap gap-2">
                 {tools.map((t) => (
                   <span
                     key={t}
-                    className="rounded-full border border-border bg-background/60 px-3 py-1 font-mono text-[11px] text-foreground/80"
+                    className="rounded-full border border-border bg-background/60 px-3 py-1 font-mono text-[12.5px] text-foreground/95"
                   >
                     {t}
                   </span>
@@ -951,7 +951,7 @@ function Contact() {
         <div className="mt-16 grid gap-10 md:grid-cols-2">
           <Reveal>
             <div>
-              <div className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">Email</div>
+              <div className="font-mono text-[12.5px] uppercase tracking-[0.22em] text-muted-foreground">Email</div>
               <a
                 href={`mailto:${EMAIL}`}
                 className="mt-3 block break-all font-sans text-2xl font-medium text-foreground transition hover:text-primary md:text-3xl"
@@ -962,7 +962,7 @@ function Contact() {
           </Reveal>
           <Reveal delay={0.08}>
             <div>
-              <div className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">Phone</div>
+              <div className="font-mono text-[12.5px] uppercase tracking-[0.22em] text-muted-foreground">Phone</div>
               <a
                 href={`tel:${PHONE_HREF}`}
                 className="mt-3 block font-sans text-2xl font-medium text-foreground transition hover:text-primary md:text-3xl"
@@ -974,7 +974,7 @@ function Contact() {
         </div>
 
         <Reveal delay={0.15}>
-          <p className="mt-16 max-w-xl text-sm leading-relaxed text-muted-foreground">
+          <p className="mt-16 max-w-xl text-[15px] leading-relaxed text-muted-foreground">
             Based in Manchester. Available in the North West and remote. I usually reply within a working day.
           </p>
         </Reveal>
@@ -988,10 +988,10 @@ function Footer() {
     <footer className="border-t border-border/60 py-10">
       <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-4 px-6 md:flex-row md:items-center">
         <Wordmark />
-        <div className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
+        <div className="font-mono text-[12.5px] uppercase tracking-[0.22em] text-muted-foreground">
           &copy; {new Date().getFullYear()} James Hutchinson. All rights reserved.
         </div>
-        <div className="flex items-center gap-6 font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
+        <div className="flex items-center gap-6 font-mono text-[12.5px] uppercase tracking-[0.22em] text-muted-foreground">
           <a href={`mailto:${EMAIL}`} className="transition hover:text-foreground">
             Email
           </a>
